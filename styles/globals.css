@@ -1,3 +1,32 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+::selection {
+  background-color: #6244db;
+  color: #f8f8f8;
+}
+
+html {
+  min-width: 360px;
+  scroll-behavior: smooth;
+}
+
+#__next {
+  @apply bg-secondary text-light;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.cursor {
+  @apply bg-light-slate;
+  height: 15px;
+  width: 15px;
+  border-radius: 50%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  pointer-events: none;
+  mix-blend-mode: difference;
+}
