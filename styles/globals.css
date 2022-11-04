@@ -29,4 +29,11 @@ html {
   left: 0;
   pointer-events: none;
   mix-blend-mode: difference;
+  z-index: 6666;
+}
+
+@media (min-height: 810px) {
+  .wrapper {
+    min-height: 100vh;
+  }
 }
