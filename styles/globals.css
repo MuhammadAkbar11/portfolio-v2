@@ -2,6 +2,22 @@
 @tailwind components;
 @tailwind utilities;
 
+@font-face {
+  font-family: "Druk Wide Bold";
+  src: url("../public/fonts/Druk-Wide-Bold.ttf");
+  font-style: normal;
+  font-weight: bold;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Druk Wide Bold";
+  src: url("../public/fonts/Druk-Wide-Bold.ttf");
+  font-style: italic;
+  font-weight: bold;
+  font-display: swap;
+}
+
 ::selection {
   background-color: #6244db;
   color: #f8f8f8;
@@ -20,7 +36,6 @@ html {
 }
 
 .cursor {
-  @apply bg-light-slate;
   height: 15px;
   width: 15px;
   border-radius: 50%;

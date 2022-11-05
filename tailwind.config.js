@@ -22,7 +22,7 @@ module.exports = {
       },
       fontFamily: {
         mono: ["'Inconsolata'", "monospace"],
-        heading: ['"Druk Wide Web Bold"', "sans-serif"],
+        heading: ['"Druk Wide Bold"', "sans-serif"],
         "heading-2": ["'Work Sans'", "sans-serif"],
         body: ["'Space Grotesk'", "sans-serif"],
       },
