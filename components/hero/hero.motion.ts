@@ -10,7 +10,7 @@ export const heroTextVariants = (delay: number) => {
       opacity: 1,
       y: 0,
       transition: {
-        delay: 0.1 + delay,
+        delay: 0.09 + delay,
         delayChildren: 0.2 + delay,
         staggerChildren: 0.1,
       },
@@ -45,7 +45,7 @@ export const heroActionVariants: Variants = {
   open: {
     opacity: 1,
     transition: {
-      delay: 0.5,
+      delay: 0.8,
       duration: 0.6,
     },
   },

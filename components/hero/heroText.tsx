@@ -11,16 +11,16 @@ type Props = {};
 function HeroText({}: Props) {
   const cursorContext = useCursorContext();
 
-  const variants = heroTextVariants(0.1);
-  const variants2 = heroTextVariants(0.3);
+  const variants = heroTextVariants(0.05);
+  const variants2 = heroTextVariants(0.1);
   const titleVariants = heroTextTitleVariants;
   return (
-    <div className="relative flex flex-wrap pt-20 pb-14 px-6 md:px-14 border-r-[1px] border-slate/25 z-[5]">
+    <div className="relative my-auto flex flex-col flex-wrap pt-20 pb-14 px-6 md:px-20 border-r-[1px] border-slate/25 z-[5]">
       <motion.h1
         variants={variants}
         initial="closed"
         animate="open"
-        className="text-light flex flex-col uppercase font-heading text-[8vw] leading-[7.7vw] overflow-hidden "
+        className="text-light flex flex-col uppercase font-heading text-[7vw] leading-[6.7vw] overflow-hidden "
       >
         <motion.span variants={titleVariants}>
           Muha<span className=" text-primary ">mm</span>ad
@@ -30,7 +30,7 @@ function HeroText({}: Props) {
         variants={variants2}
         initial="closed"
         animate="open"
-        className="text-light flex flex-col uppercase font-heading text-[8vw] leading-[7.7vw] overflow-hidden mb-3"
+        className="text-light flex flex-col uppercase font-heading text-[7vw] leading-[6.7vw] overflow-hidden mb-3"
       >
         <motion.span
           variants={titleVariants}
