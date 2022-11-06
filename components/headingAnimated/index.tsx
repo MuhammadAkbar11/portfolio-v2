@@ -1,29 +1,37 @@
 import { AnimationProps, motion } from "framer-motion";
 import clsx from "classnames";
-import React from "react";
+import React, { HtmlHTMLAttributes } from "react";
 import {
   headingAnimatedVariants,
   headingChildVariants,
 } from "./headingAnimated.motion";
 
-interface Props {
-  comp?: React.ComponentType<AnimationProps> | keyof JSX.IntrinsicElements;
+type OwnProps<E extends React.ElementType = React.ElementType> = {
+  as?: E;
   text: string;
   primaryText?: string;
   delay?: number;
   exitDelay?: number;
   className?: string;
-}
+};
 
-function HeadingAnimated({
-  comp: Component = motion.h1,
+type Props<E extends React.ElementType> = OwnProps<E> &
+  Omit<React.ComponentProps<E>, keyof OwnProps>;
+
+const __DEFAULT_ELEMENT = motion.h1;
+
+function HeadingAnimated<
+  E extends React.ElementType = typeof __DEFAULT_ELEMENT
+>({
+  as,
   className = "",
   text = "",
   primaryText = "",
   delay = 0.01,
   exitDelay = 0.5,
   ...props
-}: Props) {
+}: Props<E>) {
+  const Component = as || __DEFAULT_ELEMENT;
   const findPrimaryText = (w: string) => text.split(",").find(txt => txt === w);
 
   const clsName = clsx("flex h-auto relative", className);
