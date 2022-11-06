@@ -1,5 +1,5 @@
-export const headerNavVariants = (delay: number) => ({
-  show: {
+export const headerVariants = (delay: number = 0.3) => ({
+  open: {
     y: 0,
     opacity: 1,
     transition: {
