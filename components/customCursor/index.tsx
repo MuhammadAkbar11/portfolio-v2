@@ -2,6 +2,7 @@ import React from "react";
 import { motion } from "framer-motion";
 import { useCursorContext } from "@@context/CursorContext";
 import {
+  cursor2ndMotionVariants,
   cursorMotionVariants,
   cursorSpanMotionVariants,
 } from "./cursor.motion";
@@ -32,33 +33,42 @@ export default function CustomCursor() {
     mousePosition.y
   );
 
+  const cursor2ndvariants = cursor2ndMotionVariants(
+    mousePosition.x,
+    mousePosition.y
+  );
+
   let cursorWrapperContent = (
-    <motion.div
-      className=" h-[18px] w-[18px] cursor hidden md:flex bg-wire-primary sm "
-      variants={cursoMotionVariants}
-      animate={cursorVariant}
-    />
+    <>
+      <motion.div
+        className=" h-[18px] w-[18px] cursor hidden md:flex bg-wire-primary "
+        variants={cursoMotionVariants}
+        animate={cursorVariant}
+      />
+    </>
   );
 
   if (cursorVariant === "heroAction") {
     cursorWrapperContent = (
-      <motion.div
-        className="cursor hidden md:flex justify-center items-center sm border-[1px] border-primary overflow-hidden "
-        variants={cursoMotionVariants}
-        initial="hidden"
-        animate={cursorVariant}
-      >
-        {cursorContent ? (
-          <motion.span
-            variants={cursorSpanMotionVariants}
-            initial="hidden"
-            animate="default"
-            className=" text-[13px] font-body "
-          >
-            {cursorContent}
-          </motion.span>
-        ) : null}
-      </motion.div>
+      <>
+        <motion.div
+          className="cursor hidden md:flex justify-center items-center sm border-[1px] border-primary overflow-hidden "
+          variants={cursoMotionVariants}
+          initial="hidden"
+          animate={cursorVariant}
+        >
+          {cursorContent ? (
+            <motion.span
+              variants={cursorSpanMotionVariants}
+              initial="hidden"
+              animate="default"
+              className=" text-[13px] font-body "
+            >
+              {cursorContent}
+            </motion.span>
+          ) : null}
+        </motion.div>{" "}
+      </>
     );
   }
 
@@ -66,7 +76,7 @@ export default function CustomCursor() {
     cursorWrapperContent = (
       <>
         <motion.div
-          className="cursor relative hidden md:flex justify-center items-center sm border-[1px] border-primary "
+          className="cursor hidden md:flex justify-center items-center sm border-[1px] border-primary "
           variants={cursoMotionVariants}
           initial="hidden"
           animate={cursorVariant}
@@ -75,5 +85,15 @@ export default function CustomCursor() {
     );
   }
 
-  return cursorWrapperContent;
+  return (
+    <>
+      {cursorWrapperContent}{" "}
+      <motion.div
+        className="cursor-2 hidden md:flex bg-primary"
+        variants={cursor2ndvariants}
+        initial="hidden"
+        animate={cursorVariant === "default" ? "default" : "hidden"}
+      ></motion.div>
+    </>
+  );
 }
