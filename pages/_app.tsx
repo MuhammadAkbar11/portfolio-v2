@@ -1,6 +1,7 @@
 import "../styles/globals.css";
 import type { AppProps } from "next/app";
 import Head from "next/head";
+import { LayoutProvider } from "context/LayoutContext";
 
 export default function App({ Component, pageProps }: AppProps) {
   return (
@@ -25,7 +26,9 @@ export default function App({ Component, pageProps }: AppProps) {
         />
         <link rel="manifest" href="/favicon/site.webmanifest"></link>
       </Head>
-      <Component {...pageProps} />
+      <LayoutProvider>
+        <Component {...pageProps} />
+      </LayoutProvider>
     </>
   );
 }

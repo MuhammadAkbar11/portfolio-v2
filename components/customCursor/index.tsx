@@ -1,14 +1,18 @@
 import React from "react";
-import { motion, useAnimation, Variants } from "framer-motion";
+import { motion } from "framer-motion";
+import { useCursorContext } from "@@context/CursorContext";
+import {
+  cursorMotionVariants,
+  cursorSpanMotionVariants,
+} from "./cursor.motion";
 
 export default function CustomCursor() {
   const [mousePosition, setMousePosition] = React.useState({
     x: 0,
     y: 0,
   });
-  const [cursorVariant, setCursorVariant] = React.useState<string>("default");
 
-  const controls = useAnimation();
+  const { cursorVariant, cursorContent } = useCursorContext();
 
   React.useEffect(() => {
     const mouseMove = (e: MouseEvent) => {
@@ -17,46 +21,59 @@ export default function CustomCursor() {
         y: e.clientY,
       });
     };
-
     window.addEventListener("mousemove", mouseMove);
-
     return () => {
       window.removeEventListener("mousemove", mouseMove);
     };
   }, []);
 
-  const dfvariants: Variants = {
-    visible: { opacity: 1 },
-    hidden: { opacity: 0 },
-    default: {
-      x: mousePosition.x - 16 + "px",
-      y: mousePosition.y - 16 + "px",
-      transition: {
-        type: "spring",
-        stiffness: 120,
-        damping: 20,
-      },
-    },
-    show: {
-      height: 150,
-      width: 150,
-      x: mousePosition.x - 75 + "px",
-      y: mousePosition.y - 75 + "px",
-      backgroundColor: "yellow",
-      mixBlendMode: "difference",
-    },
-  };
-
-  // const textEnter = () => setCursorVariant("show");
-  // const textLeave = () => setCursorVariant("default");
-
-  return (
-    <div>
-      <motion.div
-        className="cursor"
-        variants={dfvariants}
-        animate={cursorVariant}
-      />
-    </div>
+  const cursoMotionVariants = cursorMotionVariants(
+    mousePosition.x,
+    mousePosition.y
   );
+
+  let cursorWrapperContent = (
+    <motion.div
+      className=" h-[18px] w-[18px] cursor hidden md:flex bg-wire-primary sm "
+      variants={cursoMotionVariants}
+      animate={cursorVariant}
+    />
+  );
+
+  if (cursorVariant === "heroAction") {
+    cursorWrapperContent = (
+      <motion.div
+        className="cursor hidden md:flex justify-center items-center sm border-[1px] border-primary overflow-hidden "
+        variants={cursoMotionVariants}
+        initial="hidden"
+        animate={cursorVariant}
+      >
+        {cursorContent ? (
+          <motion.span
+            variants={cursorSpanMotionVariants}
+            initial="hidden"
+            animate="default"
+            className=" text-[13px] font-body "
+          >
+            {cursorContent}
+          </motion.span>
+        ) : null}
+      </motion.div>
+    );
+  }
+
+  if (cursorVariant === "navlink") {
+    cursorWrapperContent = (
+      <>
+        <motion.div
+          className="cursor relative hidden md:flex justify-center items-center sm border-[1px] border-primary "
+          variants={cursoMotionVariants}
+          initial="hidden"
+          animate={cursorVariant}
+        ></motion.div>
+      </>
+    );
+  }
+
+  return cursorWrapperContent;
 }
