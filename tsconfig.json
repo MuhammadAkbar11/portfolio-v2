@@ -26,6 +26,12 @@
       "@layouts/*": [
         "layouts/*"
       ],
+      "@hooks/*": [
+        "hooks/*"
+      ],
+      "@@context/*": [
+        "context/*"
+      ],
       "@styles/*": [
         "styles/*"
       ],

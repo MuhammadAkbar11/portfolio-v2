@@ -7,6 +7,7 @@ import {
   heroActionLinkTopVariants,
   heroActionBoxVariants,
 } from "./hero.motion";
+import { useCursorContext } from "@@context/CursorContext";
 
 type Props = {
   text: string;
@@ -16,6 +17,8 @@ type Props = {
 const ActionBox = motion(Link);
 
 function HeroActionRight({ href, text }: Props) {
+  const cursorContext = useCursorContext();
+
   return (
     <ActionBox
       href={href}
@@ -24,6 +27,8 @@ function HeroActionRight({ href, text }: Props) {
       initial="closed"
       animate="open"
       className=" overflow-hidden col-span-3 lg:col-span-1 flex flex-col  justify-center items-center px-6 md:pl-14 lg:pl-6 relative"
+      onMouseEnter={() => cursorContext.cursorEnter("heroAction", "See")}
+      onMouseLeave={() => cursorContext.cursorLeave("default")}
     >
       <div className="  overflow-hidden min-h-[32px] relative w-full lg:w-[80%] flex flex-col whitespace-nowrap text-2xl font-heading ">
         <motion.div

@@ -4,10 +4,12 @@ import HeroActionLeft from "./heroActionLeft";
 import { motion } from "framer-motion";
 import HeroActionRight from "./heroActionRight";
 import { heroActionVariants } from "./hero.motion";
+import { useCursorContext } from "@@context/CursorContext";
 
 type Props = {};
 
 function HeroAction({}: Props) {
+  const cursorContext = useCursorContext();
   return (
     <motion.div
       variants={heroActionVariants}
@@ -19,6 +21,8 @@ function HeroAction({}: Props) {
       <Link
         href={"/about"}
         className="col-span-3 lg:col-span-1 border-y-[1px] lg:border-y-0  md:border-x-[1px] border-slate/25 px-6 py-8 md:py-4 md:px-14 lg:px-10 flex items-center lg:justify-center flex-wrap "
+        onMouseEnter={() => cursorContext.cursorEnter("heroAction", "About")}
+        onMouseLeave={() => cursorContext.cursorLeave("default")}
       >
         <p className=" text-slate font-body text-md sm:text-lg lg:text-base ">
           Hi There, My name is Muhammad Akbar let-let, I’m a Web Developer from

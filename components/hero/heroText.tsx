@@ -1,6 +1,7 @@
 // import HeadingAnimated from "@components/headingAnimated";
 
 import HeadingAnimated from "@components/headingAnimated";
+import { useCursorContext } from "context/CursorContext";
 import { motion } from "framer-motion";
 import React from "react";
 import { heroTextTitleVariants, heroTextVariants } from "./hero.motion";
@@ -8,6 +9,8 @@ import { heroTextTitleVariants, heroTextVariants } from "./hero.motion";
 type Props = {};
 
 function HeroText({}: Props) {
+  const cursorContext = useCursorContext();
+
   const variants = heroTextVariants(0.1);
   const variants2 = heroTextVariants(0.3);
   const titleVariants = heroTextTitleVariants;
@@ -39,7 +42,9 @@ function HeroText({}: Props) {
       <HeadingAnimated
         text="I build things for the web."
         delay={0.1}
-        className="text-slate/70  font-heading text-[4vw] leading-[4vw] md:text-[2vw] md:leading-[3vw] uppercase overflow-hidden flex flex-wrap  "
+        className="text-slate/70  font-heading text-[4vw] leading-[4vw] md:text-[2vw] md:leading-[3vw] uppercase overflow-hidden flex flex-wrap"
+        onMouseEnter={() => cursorContext.cursorEnter("subheading")}
+        onMouseLeave={() => cursorContext.cursorLeave("default")}
       />
     </div>
   );
