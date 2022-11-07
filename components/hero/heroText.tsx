@@ -11,8 +11,8 @@ type Props = {};
 function HeroText({}: Props) {
   const cursorContext = useCursorContext();
 
-  const variants = heroTextVariants(0.05);
-  const variants2 = heroTextVariants(0.1);
+  const variants = heroTextVariants(0.1);
+  const variants2 = heroTextVariants(0.3);
   const titleVariants = heroTextTitleVariants;
   return (
     <div className="relative my-auto flex flex-col flex-wrap pt-20 pb-14 px-6 md:px-20 border-r-[1px] border-slate/25 z-[5]">
@@ -41,7 +41,7 @@ function HeroText({}: Props) {
       </motion.h1>
       <HeadingAnimated
         text="I build things for the web."
-        delay={0.1}
+        delay={0.5}
         className="text-slate/70  font-heading text-[4vw] leading-[4vw] md:text-[2vw] md:leading-[3vw] uppercase overflow-hidden flex flex-wrap"
         onMouseEnter={() => cursorContext.cursorEnter("subheading")}
         onMouseLeave={() => cursorContext.cursorLeave("default")}

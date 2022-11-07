@@ -10,8 +10,8 @@ export const heroTextVariants = (delay: number) => {
       opacity: 1,
       y: 0,
       transition: {
-        delay: 0.09 + delay,
-        delayChildren: 0.2 + delay,
+        delay: 0.1 + delay,
+        delayChildren: 0.3 + delay,
         staggerChildren: 0.1,
       },
     },
@@ -37,6 +37,8 @@ export const heroTextTitleVariants: Variants = {
     transition: {
       ease: [0.6, 0.01, -0.05, 0.95],
       duration: 1,
+      // ease: "easeInOut",
+      // duration: 1,
     },
   },
 };
@@ -75,7 +77,8 @@ export const heroActionLinkTopVariants = (distance: number = -50) => {
       y: 0,
       opacity: 1,
       transition: {
-        ease: [0.6, 0.7, 0.8, 0.95],
+        ease: "easeInOut",
+        duration: 0.7,
       },
     },
     hover: {
@@ -101,7 +104,8 @@ export const heroActionLinkBottomVariants = (distance: number = 50) => {
     open: {
       y: distance,
       transition: {
-        ease: [0.6, 0.7, 0.8, 0.95],
+        ease: "easeInOut",
+        duration: 0.7,
       },
     },
     hover: {
