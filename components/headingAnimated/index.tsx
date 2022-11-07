@@ -32,13 +32,15 @@ function HeadingAnimated<
   ...props
 }: Props<E>) {
   const Component = as || __DEFAULT_ELEMENT;
-  const findPrimaryText = (w: string) => text.split(",").find(txt => txt === w);
+  const findPrimaryText = (w: string) =>
+    primaryText.split(",").find(txt => txt === w);
 
   const clsName = clsx("flex h-auto relative", className);
   const variants = headingAnimatedVariants(delay, exitDelay);
 
   const content = text.split(" ").map((word, idx) => {
-    const isPrimary = findPrimaryText(word);
+    const isPrimary = findPrimaryText(word.trim());
+
     const ky = idx;
     const itemClassName = clsx("mr-2", {
       "text-primary": isPrimary,

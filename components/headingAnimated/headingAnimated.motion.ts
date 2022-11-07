@@ -33,7 +33,7 @@ export const headingAnimatedVariants = (
 export const headingChildVariants: Variants = {
   closed: {
     opacity: 0,
-    y: 200,
+    y: 120,
     skewX: -34,
     scaleY: 0.1,
   },
