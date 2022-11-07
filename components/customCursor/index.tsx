@@ -31,7 +31,7 @@ export default function CustomCursor() {
     mousePosition.x,
     mousePosition.y
   );
-  console.log(cursorVariant);
+
   let cursorWrapperContent = (
     <>
       <motion.div
