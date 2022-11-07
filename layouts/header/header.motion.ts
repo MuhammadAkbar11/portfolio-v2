@@ -3,7 +3,7 @@ export const headerVariants = (delay: number = 0.3) => ({
     y: 0,
     opacity: 1,
     transition: {
-      duration: 0.5,
+      duration: 1,
       type: "spring",
       delay,
     },

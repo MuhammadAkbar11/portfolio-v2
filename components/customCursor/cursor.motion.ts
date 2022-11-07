@@ -1,39 +1,30 @@
-import { Variant, Variants } from "framer-motion";
+import { Variants } from "framer-motion";
 
 export const cursorMotionVariants = (posX: number, posY: number) => {
   let variants: Variants = {
-    visible: { opacity: 1 },
+    visible: { opacity: 0 },
     hidden: { opacity: 0 },
     default: {
-      // opacity: 1,
-      // x: posX - 10 + "px",
-      // y: posY - 10 + "px",
-      // height: 15,
-      // width: 15,
-      // backgroundColor: "#b6a4fc",
-      // mixBlendMode: "difference",
-      // border: "0px solid #7756fb",
-      // transition: {
-      //   type: "spring",
-      //   stiffness: 300,
-      //   damping: 30,
-      //   duration: 0.3,
-      // },
       opacity: 1,
-      height: [10, 50],
-      width: [10, 50],
-      x: posX - 25 + "px",
-      y: posY - 25 + "px",
-      backgroundColor: "rgb(182 164 252, 0)",
-      border: "1px solid #7756fb",
+      left: 0,
+      top: 0,
+      x: posX - 10 + "px",
+      y: posY - 10 + "px",
+      height: 15,
+      width: 15,
+      backgroundColor: "#b6a4fc",
+      mixBlendMode: "difference",
+      border: "0px solid #7756fb",
       transition: {
         type: "spring",
-        stiffness: 200,
+        stiffness: 300,
         damping: 30,
-        duration: 0.6,
+        duration: 0.3,
       },
     },
     heading: {
+      left: 0,
+      top: 0,
       opacity: 1,
       height: 100,
       width: 100,
@@ -49,6 +40,8 @@ export const cursorMotionVariants = (posX: number, posY: number) => {
       },
     },
     subheading: {
+      left: 0,
+      top: 0,
       opacity: 1,
       height: 50,
       width: 50,
@@ -56,22 +49,6 @@ export const cursorMotionVariants = (posX: number, posY: number) => {
       y: posY - 25 + "px",
       backgroundColor: "#b6a4fc",
       mixBlendMode: "difference",
-      border: "0px solid #7756fb",
-      transition: {
-        type: "spring",
-        stiffness: 300,
-        damping: 30,
-        duration: 0.3,
-      },
-    },
-    logo: {
-      opacity: 1,
-      height: 60,
-      width: 60,
-      x: posX - 30 + "px",
-      y: posY - 30 + "px",
-      mixBlendMode: "difference",
-      backgroundColor: "#b6a4fc",
       border: "0px solid #7756fb",
       transition: {
         type: "spring",
@@ -81,13 +58,17 @@ export const cursorMotionVariants = (posX: number, posY: number) => {
       },
     },
     navlink: {
+      left: 0,
+      top: 0,
       opacity: 1,
-      height: 50,
-      width: 50,
-      x: posX - 25 + "px",
-      y: posY - 25 + "px",
-      backgroundColor: "#b6a4fc",
-      mixBlendMode: "difference",
+      height: 70,
+      width: 70,
+      x: posX - 35 + "px",
+      y: posY - 35 + "px",
+      backgroundColor: "rgb(152, 131, 234 / 0.25)",
+      backdropFilter: "blur(1px)",
+      WebkitBackdropFilter: "blur(1px)",
+      color: "#7756fb",
       transition: {
         type: "spring",
         stiffness: 200,
@@ -96,6 +77,8 @@ export const cursorMotionVariants = (posX: number, posY: number) => {
       },
     },
     navlinkIcon: {
+      left: 0,
+      top: 0,
       x: posX - 3 + "px",
       y: posY - 3 + "px",
       opacity: 1,
@@ -110,6 +93,8 @@ export const cursorMotionVariants = (posX: number, posY: number) => {
       },
     },
     heroAction: {
+      left: 0,
+      top: 0,
       opacity: 1,
       height: 90,
       width: 90,
@@ -125,54 +110,6 @@ export const cursorMotionVariants = (posX: number, posY: number) => {
         stiffness: 300,
         damping: 30,
         duration: 0.3,
-      },
-    },
-  };
-
-  return variants;
-};
-
-export const cursor2ndMotionVariants = (posX: number, posY: number) => {
-  let variants: Variants = {
-    visible: { opacity: 1 },
-    hidden: {
-      opacity: 0,
-      x: posX - 3 + "px",
-      y: posY - 3 + "px",
-      scale: 0,
-    },
-    heroAction: { opacity: 0 },
-    default: {
-      x: posX - 3 + "px",
-      y: posY - 3 + "px",
-      opacity: 1,
-      scale: 1,
-      height: 6,
-      width: 6,
-      backgroundColor: "#b6a4fc",
-      transition: {
-        type: "spring",
-        stiffness: 300,
-        damping: 30,
-        duration: 0.5,
-      },
-    },
-    navlinkIcon: { opacity: 0 },
-    navlink: {
-      opacity: 1,
-      scale: 1,
-      height: 6,
-      width: 6,
-      x: posX - 3 + "px",
-      y: posY - 3 + "px",
-      backgroundColor: "#b6a4fc",
-      mixBlendMode: "difference",
-      border: "0px solid #7756fb",
-      transition: {
-        type: "spring",
-        stiffness: 300,
-        damping: 30,
-        duration: 0.5,
       },
     },
   };

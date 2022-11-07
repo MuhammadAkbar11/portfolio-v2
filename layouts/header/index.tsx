@@ -8,7 +8,7 @@ import HeaderSocials from "./headerSocials";
 
 const Header = () => {
   const cursorContext = useCursorContext();
-  const variants: Variants = headerVariants(0.2);
+  const variants: Variants = headerVariants(0.5);
   return (
     <motion.header
       variants={variants}
@@ -20,20 +20,20 @@ const Header = () => {
       <nav className="px-6 sm:px-8 h-full flex justify-start items-center w-max  text-light">
         <Link
           href="/"
-          onMouseEnter={() => cursorContext.cursorEnter("logo")}
+          onMouseEnter={() => cursorContext.cursorEnter("navlink")}
           onMouseLeave={() => cursorContext.cursorLeave("default")}
         >
           <img src="/images/logo.png" className=" h-[50px] my-0" alt="Logo" />
         </Link>
       </nav>
-      <nav className=" hidden md:flex px-6 md:px-20 mx-auto h-full items-center flex-1 md:justify-end text-primary ">
+      <nav className=" hidden lg:flex px-6 md:px-20 mx-auto h-full items-center flex-1 md:justify-end text-primary ">
         <ul className="  flex h-full py-2 items-center ">
+          <HeaderLinkItem href="/" text="Home" />
           <HeaderLinkItem href="/about" text="About" />
-          <HeaderLinkItem href="/work" text="Work" />
         </ul>
       </nav>
       <nav
-        className=" hidden ml-auto px-8 h-full md:flex items-center w-max md:justify-center text-slate "
+        className=" hidden ml-auto px-8 h-full lg:flex items-center w-max md:justify-center text-slate "
         onMouseEnter={() => cursorContext.cursorEnter("navlinkIcon")}
         onMouseLeave={() => cursorContext.cursorLeave("default")}
       >

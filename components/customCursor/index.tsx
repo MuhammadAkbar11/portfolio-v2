@@ -2,7 +2,6 @@ import React from "react";
 import { motion } from "framer-motion";
 import { useCursorContext } from "@@context/CursorContext";
 import {
-  cursor2ndMotionVariants,
   cursorMotionVariants,
   cursorSpanMotionVariants,
 } from "./cursor.motion";
@@ -13,7 +12,7 @@ export default function CustomCursor() {
     y: 0,
   });
 
-  const { cursorVariant, cursorContent } = useCursorContext();
+  const { cursorVariant, cursorContent, resetCursor } = useCursorContext();
 
   React.useEffect(() => {
     const mouseMove = (e: MouseEvent) => {
@@ -32,12 +31,7 @@ export default function CustomCursor() {
     mousePosition.x,
     mousePosition.y
   );
-
-  const cursor2ndvariants = cursor2ndMotionVariants(
-    mousePosition.x,
-    mousePosition.y
-  );
-
+  console.log(cursorVariant);
   let cursorWrapperContent = (
     <>
       <motion.div
@@ -85,15 +79,5 @@ export default function CustomCursor() {
     );
   }
 
-  return (
-    <>
-      {cursorWrapperContent}{" "}
-      <motion.div
-        className="cursor-2 hidden md:flex bg-primary"
-        variants={cursor2ndvariants}
-        initial="hidden"
-        animate={cursorVariant === "default" ? "default" : "hidden"}
-      ></motion.div>
-    </>
-  );
+  return <>{cursorWrapperContent} </>;
 }

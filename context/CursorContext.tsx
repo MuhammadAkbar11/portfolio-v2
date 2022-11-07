@@ -5,13 +5,15 @@ type CursorContextType = {
   cursorContent: string | null | ReactNode;
   cursorEnter: (variant: string, content?: string) => void;
   cursorLeave: (variant: string) => void;
+  resetCursor: () => void;
 };
 
 const cursorContextDefaultValues: CursorContextType = {
-  cursorVariant: "default",
+  cursorVariant: "visible",
   cursorContent: null,
   cursorEnter: () => null,
   cursorLeave: () => null,
+  resetCursor: () => null,
 };
 
 export const CursorContext = createContext<CursorContextType>(
@@ -27,7 +29,7 @@ type Props = {
 };
 
 export function CursorProvider({ children }: Props) {
-  const [cursorVariant, setCursorVariant] = useState<string>("default");
+  const [cursorVariant, setCursorVariant] = useState<string>("visible");
   const [cursorContent, setCursorContent] = useState<string | null>(null);
 
   const cursorEnter = (variant: string, content?: string) => {
@@ -39,11 +41,14 @@ export function CursorProvider({ children }: Props) {
     setCursorContent(null);
   };
 
+  const resetCursor = () => setCursorVariant("visible");
+
   const value: CursorContextType = {
     cursorVariant,
     cursorContent,
     cursorEnter,
     cursorLeave,
+    resetCursor,
   };
 
   return (
