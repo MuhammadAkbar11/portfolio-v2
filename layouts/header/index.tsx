@@ -6,10 +6,15 @@ import { headerVariants } from "./header.motion";
 import HeaderLinkItem from "./headerLinkItem";
 import HeaderSocials from "./headerSocials";
 import { NAV_LINKS } from "@utils/constants.utils";
+import { useRouter } from "next/router";
 
 const Header = () => {
   const cursorContext = useCursorContext();
   const variants: Variants = headerVariants(0.5);
+
+  const router = useRouter();
+
+  console.log(router);
   return (
     <motion.header
       variants={variants}
@@ -32,7 +37,11 @@ const Header = () => {
           {NAV_LINKS.map(nav => {
             return (
               <React.Fragment key={nav.key}>
-                <HeaderLinkItem href={nav.url} text={nav.name} />
+                <HeaderLinkItem
+                  href={nav.url}
+                  text={nav.name}
+                  active={router.pathname === nav.url}
+                />
               </React.Fragment>
             );
           })}
