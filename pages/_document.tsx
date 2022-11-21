@@ -32,7 +32,6 @@ export default function Document() {
           href="/favicon/favicon-16x16.png"
         />
         <link rel="manifest" href="/favicon/site.webmanifest"></link>
-        <title>Loading... || Muhammad Akbar L</title>
       </Head>
       <body>
         <div

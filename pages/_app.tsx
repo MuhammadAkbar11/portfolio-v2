@@ -1,9 +1,10 @@
-import "../styles/globals.css";
+import "@styles/globals.css";
 import type { AppProps } from "next/app";
-import { LayoutProvider } from "context/LayoutContext";
+import { LayoutProvider } from "@@context/LayoutContext";
 import { useEffect, useState } from "react";
 import useMediaQuery from "@hooks/useMediaQuery";
 import CustomCursor from "@components/customCursor";
+import Head from "next/head";
 
 export default function App({ Component, pageProps }: AppProps) {
   const [showChild, setShowChild] = useState(false);
@@ -31,6 +32,9 @@ export default function App({ Component, pageProps }: AppProps) {
 
   return (
     <>
+      <Head>
+        <title>Loading... || Muhammad Akbar L</title>
+      </Head>
       <LayoutProvider>
         {mdscreen ? <CustomCursor /> : null}
         <Component {...pageProps} />
