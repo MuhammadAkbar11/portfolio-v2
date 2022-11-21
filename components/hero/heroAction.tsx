@@ -1,6 +1,6 @@
 import React from "react";
-import HeroActionLeft from "./heroActionLeft";
 import { motion } from "framer-motion";
+import HeroActionLeft from "./heroActionLeft";
 import HeroActionRight from "./heroActionRight";
 import { heroActionVariants } from "./hero.motion";
 import HeroActionCenter from "./heroActionCenter";
@@ -15,9 +15,9 @@ function HeroAction({}: Props) {
       animate="open"
       className="flex flex-col min-h-[200px] lg:max-h-[200px] xl:max-h-[280px] mt-auto lg:flex-row text-light border border-slate/25 flex-1 bg-secondary z-[5] "
     >
-      <HeroActionLeft href="/contact" />
-      <HeroActionCenter href="/about" />
-      <HeroActionRight text="My Works" href="/work" />
+      <HeroActionLeft href="/about" name="About" />
+      <HeroActionCenter href="/contact" name="Contact" />
+      <HeroActionRight name="My Works" href="/work" cursorText="See" />
     </motion.div>
   );
 }

@@ -10,11 +10,12 @@ import { useCursorContext } from "@@context/CursorContext";
 import { useRouter } from "next/router";
 
 type Props = {
-  text: string;
+  cursorText: string;
+  name: string;
   href: string;
 };
 
-function HeroActionRight({ href, text }: Props) {
+function HeroActionRight({ href, name, cursorText }: Props) {
   const cursorContext = useCursorContext();
   const router = useRouter();
 
@@ -31,7 +32,7 @@ function HeroActionRight({ href, text }: Props) {
       initial="closed"
       animate="open"
       className="flex-1 overflow-hidden flex flex-col  justify-center items-center px-6 sm:px-8 py-8 sm:py-16 md:py-8 relative"
-      onMouseEnter={() => cursorContext.cursorEnter("heroAction", "See")}
+      onMouseEnter={() => cursorContext.cursorEnter("heroAction", cursorText)}
       onMouseLeave={() => cursorContext.cursorLeave("default")}
       onClick={onClickHandler}
     >
@@ -40,7 +41,7 @@ function HeroActionRight({ href, text }: Props) {
           variants={heroActionLinkTopVariants(-33)}
           className="absolute w-full flex justify-between md:justify-start lg:justify-center gap-3 "
         >
-          <span>{text}</span>
+          <span>{name}</span>
           <span>
             <ArrowRight className=" w-10 mt-1" />
           </span>
@@ -49,7 +50,7 @@ function HeroActionRight({ href, text }: Props) {
           variants={heroActionLinkBottomVariants(30)}
           className="absolute w-full flex justify-between gap-3 sm:gap-6 lg:gap-3 md:justify-start lg:justify-center "
         >
-          <span className="">{text}</span>
+          <span className="">{name}</span>
           <span>
             <ArrowRight className=" w-10 mt-1" />
           </span>

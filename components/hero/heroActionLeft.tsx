@@ -10,11 +10,11 @@ import { useCursorContext } from "@@context/CursorContext";
 import { useRouter } from "next/router";
 
 type Props = {
-  text?: string;
+  name: string;
   href: string;
 };
 
-function HeroActionLeft({ href }: Props) {
+function HeroActionLeft({ href, name }: Props) {
   const cursorContext = useCursorContext();
   const router = useRouter();
 
@@ -31,7 +31,7 @@ function HeroActionLeft({ href }: Props) {
       initial="closed"
       animate="open"
       className="overflow-y-hidden flex-1 flex items-center md:justify-start relative justify-start px-6 sm:pl-8 py-8 sm:py-16 md:py-8 "
-      onMouseEnter={() => cursorContext.cursorEnter("heroAction", "Contact")}
+      onMouseEnter={() => cursorContext.cursorEnter("heroAction", name)}
       onMouseLeave={() => cursorContext.cursorLeave("default")}
       onClick={onClickHandler}
     >
