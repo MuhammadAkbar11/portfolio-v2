@@ -1,7 +1,6 @@
-import { MotionValue, Variants } from "framer-motion";
+import { Variants } from "framer-motion";
 
 export const decorationWrapperVariants = (delay: number = 0.3, y?: any) => {
-  console.log(y);
   return {
     closed: {
       opacity: 0,

@@ -12,7 +12,7 @@ export default function CustomCursor() {
     y: 0,
   });
 
-  const { cursorVariant, cursorContent, resetCursor } = useCursorContext();
+  const { cursorVariant, cursorContent } = useCursorContext();
 
   React.useEffect(() => {
     const mouseMove = (e: MouseEvent) => {
@@ -27,7 +27,7 @@ export default function CustomCursor() {
     };
   }, []);
 
-  const cursoMotionVariants = cursorMotionVariants(
+  const cMotionVariants = cursorMotionVariants(
     mousePosition.x,
     mousePosition.y
   );
@@ -36,7 +36,7 @@ export default function CustomCursor() {
     <>
       <motion.div
         className=" h-[18px] w-[18px] cursor hidden md:flex bg-wire-primary "
-        variants={cursoMotionVariants}
+        variants={cMotionVariants}
         animate={cursorVariant}
       />
     </>
@@ -47,7 +47,7 @@ export default function CustomCursor() {
       <>
         <motion.div
           className="cursor hidden md:flex justify-center items-center sm border-[1px] border-primary overflow-hidden "
-          variants={cursoMotionVariants}
+          variants={cMotionVariants}
           initial="hidden"
           animate={cursorVariant}
         >
@@ -71,7 +71,7 @@ export default function CustomCursor() {
       <>
         <motion.div
           className="cursor hidden md:flex justify-center items-center sm border-[1px] border-primary "
-          variants={cursoMotionVariants}
+          variants={cMotionVariants}
           initial="hidden"
           animate={cursorVariant}
         ></motion.div>

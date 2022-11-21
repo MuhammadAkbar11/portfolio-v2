@@ -1,5 +1,5 @@
+import { COLORS } from "@utils/constants.utils";
 import { Variants } from "framer-motion";
-
 export const cursorMotionVariants = (posX: number, posY: number) => {
   let variants: Variants = {
     visible: { opacity: 0 },
@@ -12,9 +12,9 @@ export const cursorMotionVariants = (posX: number, posY: number) => {
       y: posY - 10 + "px",
       height: 15,
       width: 15,
-      backgroundColor: "#b6a4fc",
+      backgroundColor: COLORS.primary,
       mixBlendMode: "difference",
-      border: "0px solid #7756fb",
+      border: `0px solid ${COLORS.primary}`,
       transition: {
         type: "spring",
         stiffness: 300,
@@ -32,7 +32,7 @@ export const cursorMotionVariants = (posX: number, posY: number) => {
       y: posY - 50 + "px",
       backgroundColor: "#b6a4fc",
       mixBlendMode: "difference",
-      border: "0px solid #7756fb",
+      border: `0px solid ${COLORS.primary}`,
       transition: {
         type: "spring",
         stiffness: 120,
@@ -49,7 +49,7 @@ export const cursorMotionVariants = (posX: number, posY: number) => {
       y: posY - 25 + "px",
       backgroundColor: "#b6a4fc",
       mixBlendMode: "difference",
-      border: "0px solid #7756fb",
+      border: `0px solid ${COLORS.primary}`,
       transition: {
         type: "spring",
         stiffness: 300,
@@ -65,10 +65,10 @@ export const cursorMotionVariants = (posX: number, posY: number) => {
       width: 70,
       x: posX - 35 + "px",
       y: posY - 35 + "px",
-      backgroundColor: "rgb(152, 131, 234 / 0.25)",
+      backgroundColor: COLORS.cursorBgPrimary,
       backdropFilter: "blur(1px)",
       WebkitBackdropFilter: "blur(1px)",
-      color: "#7756fb",
+      color: COLORS.primary,
       transition: {
         type: "spring",
         stiffness: 200,
@@ -100,11 +100,12 @@ export const cursorMotionVariants = (posX: number, posY: number) => {
       width: 90,
       x: posX - 45 + "px",
       y: posY - 45 + "px",
-      backgroundColor: "rgb(152, 131, 234 / 0.25)",
+      backgroundColor: COLORS.cursorBgPrimary,
       backdropFilter: "blur(2px)",
       WebkitBackdropFilter: "blur(2px)",
-      color: "#7756fb",
-      border: "1px solid #7756fb",
+      mixBlendMode: "initial",
+      color: COLORS.primary,
+      border: `1px solid ${COLORS.primary}`,
       transition: {
         type: "spring",
         stiffness: 300,

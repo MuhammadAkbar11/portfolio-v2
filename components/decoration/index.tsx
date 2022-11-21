@@ -1,16 +1,5 @@
 import React from "react";
-import {
-  motion,
-  MotionValue,
-  useAnimationControls,
-  useScroll,
-  useTransform,
-} from "framer-motion";
-import {
-  decorationWrapperVariants,
-  decorationXLVariants,
-} from "./decoration.motion";
-import useScrollUp from "@hooks/useScrollUp";
+
 import DecorationSmall from "./decorationSmall";
 import DecorationLarge from "./decorationLarge";
 // import clsx from "classnames";
