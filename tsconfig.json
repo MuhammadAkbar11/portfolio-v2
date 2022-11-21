@@ -26,11 +26,14 @@
       "@layouts/*": [
         "layouts/*"
       ],
+      "@utils/*": [
+        "utils/*"
+      ],
       "@hooks/*": [
-        "hooks/*"
+        "utils/hooks/*"
       ],
       "@@context/*": [
-        "context/*"
+        "utils/context/*"
       ],
       "@styles/*": [
         "styles/*"

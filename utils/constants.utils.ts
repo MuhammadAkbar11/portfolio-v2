@@ -12,7 +12,7 @@ export const COLORS = {
   lightnessSlate: "#CCD6F6",
 };
 
-export const NAVLINKS = [
+export const NAV_LINKS = [
   {
     key: "#1",
     name: "About",

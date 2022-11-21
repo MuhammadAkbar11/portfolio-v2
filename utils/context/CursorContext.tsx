@@ -41,7 +41,7 @@ export function CursorProvider({ children }: Props) {
     setCursorContent(null);
   };
 
-  const resetCursor = () => setCursorVariant("visible");
+  const resetCursor = () => setCursorVariant("default");
 
   const value: CursorContextType = {
     cursorVariant,
