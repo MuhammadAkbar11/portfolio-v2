@@ -1,7 +1,6 @@
 import { motion } from "framer-motion";
-import React, { ReactEventHandler } from "react";
+import React from "react";
 import ArrowRight from "@assets/arrow-right.svg";
-import Link from "next/link";
 import {
   heroActionLinkBottomVariants,
   heroActionLinkTopVariants,
@@ -36,7 +35,7 @@ function HeroActionRight({ href, text }: Props) {
       onMouseLeave={() => cursorContext.cursorLeave("default")}
       onClick={onClickHandler}
     >
-      <div className="  overflow-hidden min-h-[32px] relative w-full lg:w-[80%] flex flex-col whitespace-nowrap text-2xl font-heading ">
+      <div className="overflow-hidden min-h-[32px] relative w-full lg:w-[80%] flex flex-col whitespace-nowrap text-2xl font-heading ">
         <motion.div
           variants={heroActionLinkTopVariants(-33)}
           className="absolute w-full flex justify-between md:justify-start lg:justify-center gap-3 "

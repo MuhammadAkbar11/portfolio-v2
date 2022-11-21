@@ -1,7 +1,7 @@
 // import HeadingAnimated from "@components/headingAnimated";
 
 import HeadingAnimated from "@components/headingAnimated";
-import { useCursorContext } from "context/CursorContext";
+import { useCursorContext } from "@@context/CursorContext";
 import { motion } from "framer-motion";
 import React from "react";
 import { heroTextTitleVariants, heroTextVariants } from "./hero.motion";
@@ -30,7 +30,7 @@ function HeroText({}: Props) {
         variants={variants2}
         initial="closed"
         animate="open"
-        className="text-light flex flex-col uppercase font-heading text-[7vw] leading-[6.7vw] overflow-hidden mb-3"
+        className="text-light flex flex-col uppercase font-heading text-[7vw] leading-[6.7vw] overflow-hidden mb-3 -mt-2"
       >
         <motion.span
           variants={titleVariants}
