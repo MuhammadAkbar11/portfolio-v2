@@ -16,7 +16,7 @@ function HeaderLinkItem({ href, text }: Props) {
       onMouseEnter={() => cursorContext.cursorEnter("navlink")}
       onMouseLeave={() => cursorContext.cursorLeave("default")}
     >
-      <Link href={href} className="py-2 px-6">{`.${text}`}</Link>
+      <Link href={href} className="py-2 px-6">{`_${text}`}</Link>
     </li>
   );
 }

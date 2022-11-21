@@ -5,6 +5,7 @@ import React from "react";
 import { headerVariants } from "./header.motion";
 import HeaderLinkItem from "./headerLinkItem";
 import HeaderSocials from "./headerSocials";
+import { NAV_LINKS } from "@utils/constants.utils";
 
 const Header = () => {
   const cursorContext = useCursorContext();
@@ -28,8 +29,13 @@ const Header = () => {
       </nav>
       <nav className=" hidden lg:flex px-6 md:px-20 mx-auto h-full items-center flex-1 md:justify-end text-primary ">
         <ul className="  flex h-full py-2 items-center ">
-          <HeaderLinkItem href="/" text="Home" />
-          <HeaderLinkItem href="/about" text="About" />
+          {NAV_LINKS.map(nav => {
+            return (
+              <React.Fragment key={nav.key}>
+                <HeaderLinkItem href={nav.url} text={nav.name} />
+              </React.Fragment>
+            );
+          })}
         </ul>
       </nav>
       <nav
@@ -46,13 +52,13 @@ const Header = () => {
           onMouseEnter={() => cursorContext.cursorEnter("navlink")}
           onMouseLeave={() => cursorContext.cursorLeave("default")}
         >
-          {`.GetInTouch`}
+          {`_GetInTouch`}
         </Link>
         <a
           href="#/"
           className=" text-center md:hidden text-base font-mono text-slate italic hover:text-light"
         >
-          .Menu
+          _Menu
         </a>
       </nav>
     </motion.header>
