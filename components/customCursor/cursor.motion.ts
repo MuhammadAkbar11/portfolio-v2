@@ -30,7 +30,7 @@ export const cursorMotionVariants = (posX: number, posY: number) => {
       width: 100,
       x: posX - 50 + "px",
       y: posY - 50 + "px",
-      backgroundColor: "#b6a4fc",
+      backgroundColor: COLORS.primary,
       mixBlendMode: "difference",
       border: `0px solid ${COLORS.primary}`,
       transition: {
@@ -47,7 +47,7 @@ export const cursorMotionVariants = (posX: number, posY: number) => {
       width: 50,
       x: posX - 25 + "px",
       y: posY - 25 + "px",
-      backgroundColor: "#b6a4fc",
+      backgroundColor: COLORS.primary,
       mixBlendMode: "difference",
       border: `0px solid ${COLORS.primary}`,
       transition: {
