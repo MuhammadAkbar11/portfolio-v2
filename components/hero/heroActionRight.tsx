@@ -1,6 +1,6 @@
 import { motion } from "framer-motion";
 import React from "react";
-import ArrowRight from "@assets/arrow-right.svg";
+import ArrowRight from "@assets/arrow-right2.svg";
 import {
   heroActionLinkBottomVariants,
   heroActionLinkTopVariants,

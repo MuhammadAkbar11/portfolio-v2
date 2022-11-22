@@ -28,7 +28,7 @@ function HeroText({}: Props) {
         variants={variants2}
         initial="closed"
         animate="open"
-        className="text-light flex flex-col uppercase font-heading text-[7vw] leading-[6.7vw] overflow-hidden mb-3 lg:-mt-2"
+        className="text-light flex flex-col uppercase font-heading text-[7vw] leading-[6.7vw] overflow-hidden mb-3 lg:-mt-1"
       >
         <motion.span
           variants={titleVariants}
