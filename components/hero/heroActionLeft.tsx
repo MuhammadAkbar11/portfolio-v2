@@ -8,6 +8,7 @@ import {
 } from "./hero.motion";
 import { useCursorContext } from "@@context/CursorContext";
 import { useRouter } from "next/router";
+import useMediaQuery from "@hooks/useMediaQuery";
 
 type Props = {
   name: string;
@@ -17,6 +18,8 @@ type Props = {
 function HeroActionLeft({ href, name }: Props) {
   const cursorContext = useCursorContext();
   const router = useRouter();
+
+  const mdScreen = useMediaQuery("(min-width: 768px)");
 
   const onClickHandler = (e: React.MouseEvent<HTMLAnchorElement>) => {
     e.preventDefault();
@@ -35,16 +38,16 @@ function HeroActionLeft({ href, name }: Props) {
       onMouseLeave={() => cursorContext.cursorLeave("default")}
       onClick={onClickHandler}
     >
-      <div className=" uppercase flex flex-col overflow-y-hidden relative w-full font-heading h-[63px] text-3xl leading-7 sm:text-4xl sm:leading-8 sm:h-[70px] md:h-[65px] lg:text-2xl lg:leading-[25px] lg:h-[50px] xl:text-3xl xl:leading-7 xl:min-h-[60px]  ">
+      <div className=" uppercase flex flex-col overflow-y-hidden relative w-full font-heading h-[63px] text-3xl leading-7 sm:text-4xl sm:leading-8 sm:h-[70px] md:text-5xl md:leading-[50px] md:h-[96px] lg:text-2xl lg:leading-[25px] lg:h-[52px]  xl:text-3xl xl:leading-7 xl:min-h-[60px]  ">
         <motion.span
-          variants={heroActionLinkTopVariants(-70)}
+          variants={heroActionLinkTopVariants(mdScreen ? -105 : -70)}
           className=" flex absolute   "
         >
           Web <br />
           Developer
         </motion.span>
         <motion.span
-          variants={heroActionLinkBottomVariants(70)}
+          variants={heroActionLinkBottomVariants(mdScreen ? 120 : 70)}
           className="flex absolute   "
         >
           Javascript <br />

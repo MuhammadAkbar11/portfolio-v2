@@ -8,6 +8,7 @@ import {
 } from "./hero.motion";
 import { useCursorContext } from "@@context/CursorContext";
 import { useRouter } from "next/router";
+import useMediaQuery from "@hooks/useMediaQuery";
 
 type Props = {
   cursorText: string;
@@ -18,6 +19,8 @@ type Props = {
 function HeroActionRight({ href, name, cursorText }: Props) {
   const cursorContext = useCursorContext();
   const router = useRouter();
+
+  const mdScreen = useMediaQuery("(min-width: 768px)");
 
   const onClickHandler = (e: React.MouseEvent<HTMLAnchorElement>) => {
     e.preventDefault();
@@ -36,10 +39,10 @@ function HeroActionRight({ href, name, cursorText }: Props) {
       onMouseLeave={() => cursorContext.cursorLeave("default")}
       onClick={onClickHandler}
     >
-      <div className="overflow-hidden min-h-[32px] relative w-full lg:w-[80%] flex flex-col whitespace-nowrap text-2xl font-heading ">
+      <div className="overflow-hidden min-h-[32px] md:min-h-[42px]  relative w-full lg:w-[80%] flex flex-col whitespace-nowrap md:text-4xl md:leading-10  text-2xl lg:text-xl lg:min-h-[32px] font-heading uppercase xl:text-2xl ">
         <motion.div
-          variants={heroActionLinkTopVariants(-33)}
-          className="absolute w-full flex justify-between md:justify-start lg:justify-center gap-3 "
+          variants={heroActionLinkTopVariants(mdScreen ? -45 : -33)}
+          className="absolute w-full flex justify-between lg:justify-center gap-3 "
         >
           <span>{name}</span>
           <span>
@@ -47,8 +50,8 @@ function HeroActionRight({ href, name, cursorText }: Props) {
           </span>
         </motion.div>
         <motion.div
-          variants={heroActionLinkBottomVariants(30)}
-          className="absolute w-full flex justify-between gap-3 sm:gap-6 lg:gap-3 md:justify-start lg:justify-center "
+          variants={heroActionLinkBottomVariants(mdScreen ? 45 : 33)}
+          className="absolute w-full flex justify-between gap-3 sm:gap-6 lg:gap-3 lg:justify-center "
         >
           <span className="">{name}</span>
           <span>
