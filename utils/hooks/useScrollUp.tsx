@@ -32,7 +32,12 @@ function useScrollUp() {
     };
   }, [lastYPos]);
 
-  return { shouldShowActions, isScroll, isYTop: YTop, lastYPos };
+  return {
+    doActions: shouldShowActions,
+    isScrolling: isScroll,
+    isYTop: YTop,
+    lastYPos,
+  };
 }
 
 export default useScrollUp;
