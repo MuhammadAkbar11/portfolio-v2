@@ -40,7 +40,6 @@ function HeadingAnimated<
 
   const content = text.split(" ").map((word, idx) => {
     const isPrimary = findPrimaryText(word.trim());
-
     const ky = idx;
     const itemClassName = clsx("mr-2", {
       "text-primary": isPrimary,

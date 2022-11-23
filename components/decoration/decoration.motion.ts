@@ -37,6 +37,7 @@ export const decorationXLVariants: Variants = {
 export const decorationSmallVariants: Variants = {
   closed: {
     rotate: -20,
+    y: 0,
   },
   open: {
     rotate: -20,

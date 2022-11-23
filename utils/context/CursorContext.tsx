@@ -33,8 +33,13 @@ export function CursorProvider({ children }: Props) {
   const [cursorContent, setCursorContent] = useState<string | null>(null);
 
   const cursorEnter = (variant: string, content?: string) => {
+    setCursorContent(null);
     setCursorVariant(variant);
-    setCursorContent(content || null);
+    if (content) {
+      setTimeout(() => {
+        setCursorContent(content);
+      }, 100);
+    }
   };
   const cursorLeave = (variant: string) => {
     setCursorVariant(variant);
