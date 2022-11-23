@@ -34,7 +34,7 @@ function HeroActionRight({ href, name, cursorText }: Props) {
       whileHover="hover"
       initial="closed"
       animate="open"
-      className="flex-1 overflow-hidden flex flex-col  justify-center items-center px-6 sm:px-8 py-8 sm:py-16 md:py-8 relative"
+      className="flex-1 overflow-hidden flex flex-col  justify-center items-center px-6 sm:px-8 py-8 sm:py-16 md:py-8 relative  hover:bg-light-secondary/10 transition-all duration-100 ease-in-out"
       onMouseEnter={() => cursorContext.cursorEnter("heroAction", cursorText)}
       onMouseLeave={() => cursorContext.cursorLeave("default")}
       onClick={onClickHandler}
