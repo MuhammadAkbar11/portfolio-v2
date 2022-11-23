@@ -5,7 +5,6 @@ import HeadingAnimated from "@components/headingAnimated";
 import PageSubHeading from "@components/pageSubHeading";
 import AboutContent from "@components/aboutContent";
 import AboutSkill from "@components/aboutSkill";
-import AboutFooter from "@components/aboutFooter";
 import Footer from "@layouts/footer";
 import { useCursorContext } from "@@context/CursorContext";
 
@@ -49,7 +48,6 @@ export default function About() {
         </section>
         <AboutContent />
         <AboutSkill />
-        <AboutFooter />
         <Footer />
       </Template>
     </>

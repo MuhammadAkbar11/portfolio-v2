@@ -1,22 +1,22 @@
-import Link from "next/link";
-import { motion, useAnimation } from "framer-motion";
+import { motion } from "framer-motion";
 import React from "react";
 import useIntersectionObserver from "@hooks/useIntersectionObserver";
 import HeadingAnimated from "@components/headingAnimated";
 import {
-  aboutFooterAnchorDotVariants,
-  aboutFooterAnchorIVariants,
-  aboutFooterArrowVariant,
-  aboutFooterHR2Variants,
-  aboutFooterHRVariants,
-} from "./aboutFooter.motion";
+  footerContactAnchorDotVariants,
+  footerContactAnchorIVariants,
+  footerContactArrowVariant,
+  footerContactHR2Variants,
+  footerContactHRVariants,
+} from "./footer.motion";
 import ArrowRight from "@assets/arrow-right2.svg";
 import { useRouter } from "next/router";
 import { useCursorContext } from "@@context/CursorContext";
+import clsx from "classnames";
 
 type Props = {};
 
-function AboutFooter({}: Props) {
+function FooterContact({}: Props) {
   const [transformOriginIn, setTransformOriginIn] =
     React.useState("-100% -100%");
   const [borderDelay, setBorderDelay] = React.useState(0.6);
@@ -34,11 +34,14 @@ function AboutFooter({}: Props) {
 
   const isVisible = !!entryHeading?.isIntersecting;
 
+  const classFontSize =
+    "text-[6vw] leading-[6vw] md:text-[7vw] md:leading-[7vw] lg:text-[7.5vw] lg:leading-[7.5vw] xl:text-[7vw] xl:leading-[7vw] ";
+
   return (
-    <section className="w-100 py-20 min-h-[20vh] lg:min-h-[60vh] overflow-hidden bg-secondary/90  px-6 md:px-20 flex flex-col justify-center ">
+    <section className="w-100 relative py-20 min-h-[20vh] lg:min-h-[80vh] overflow-hidden bg-secondary/90  px-6 md:px-20 flex flex-col justify-center ">
       <div className="flex h-full justify-start items-center ">
         <motion.a
-          variants={aboutFooterAnchorIVariants}
+          variants={footerContactAnchorIVariants}
           initial="closed"
           animate="open"
           whileHover="hover"
@@ -63,25 +66,33 @@ function AboutFooter({}: Props) {
             <>
               <div className="flex ">
                 <HeadingAnimated
-                  className="font-heading overflow-hidden text-[6vw] leading-[6vw] md:text-[5vw] md:leading-[5vw] lg:text-[4.6vw] lg:leading-[4.6vw] text-light"
+                  className={clsx(
+                    "font-heading overflow-hidden text-light",
+                    classFontSize
+                  )}
                   text="Let's Work"
                   primaryText="Work"
                 />
               </div>
-              <div className=" text-light overflow-hidden flex w-max font-heading text-[6vw]  leading-[6vw] md:text-[5vw] md:leading-[5vw] lg:text-[4.6vw] lg:leading-[4.6vw] relative">
-                <HeadingAnimated className=" " delay={0.4} text="Together" />
-                <div className="relative w-20 ">
+              <div
+                className={clsx(
+                  "text-light overflow-hidden flex w-max font-heading relative",
+                  classFontSize
+                )}
+              >
+                <HeadingAnimated delay={0.4} text="Together" />
+                <div className="relative w-8 sm:w-14 md:w-[90px] lg:w-[100px] ">
                   <motion.span
                     className=" absolute left-0 bottom-0 "
-                    variants={aboutFooterAnchorDotVariants(iconDelay)}
+                    variants={footerContactAnchorDotVariants(iconDelay)}
                   >
                     .
                   </motion.span>
                   <motion.span
                     className="absolute left-0 bottom-0 "
-                    variants={aboutFooterArrowVariant}
+                    variants={footerContactArrowVariant}
                   >
-                    <ArrowRight className=" w-8  sm:w-14 z-[5] lg:w-[70px] mt-1 text-primary " />
+                    <ArrowRight className=" w-8  sm:w-14 z-[5] md:w-[90px] lg:w-[100px] mt-1 text-primary " />
                   </motion.span>
                 </div>
               </div>
@@ -90,12 +101,12 @@ function AboutFooter({}: Props) {
                   style={{
                     transformOrigin: transformOriginIn,
                   }}
-                  variants={aboutFooterHRVariants(borderDelay)}
+                  variants={footerContactHRVariants(borderDelay)}
                   className=" h-[0.5px] absolute z-10 left-0 bottom-0 w-full bg-wire-primary/25 border-wire-primary/25 mt-2 "
                 />
                 <motion.hr
                   style={{ transformOrigin: "-100% -100%" }}
-                  variants={aboutFooterHR2Variants}
+                  variants={footerContactHR2Variants}
                   className=" h-[0.5px] absolute z-10 left-0 bottom-0 w-full bg-slate border-slate mt-2 "
                 />
               </div>
@@ -107,4 +118,4 @@ function AboutFooter({}: Props) {
   );
 }
 
-export default AboutFooter;
+export default FooterContact;

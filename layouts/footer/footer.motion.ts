@@ -1,7 +1,7 @@
 import { MOTION_EASE } from "@utils/constants.utils";
 import { Variants } from "framer-motion";
 
-export const aboutFooterAnchorIVariants: Variants = {
+export const footerContactAnchorIVariants: Variants = {
   closed: {
     opacity: 0,
   },
@@ -16,7 +16,7 @@ export const aboutFooterAnchorIVariants: Variants = {
   hover: {},
 };
 
-export const aboutFooterAnchorDotVariants = (delay: number) =>
+export const footerContactAnchorDotVariants = (delay: number) =>
   <Variants>{
     closed: {
       y: 45,
@@ -41,7 +41,7 @@ export const aboutFooterAnchorDotVariants = (delay: number) =>
     },
   };
 
-export const aboutFooterArrowVariant: Variants = {
+export const footerContactArrowVariant: Variants = {
   closed: {
     y: 35,
     opacity: 0,
@@ -66,7 +66,7 @@ export const aboutFooterArrowVariant: Variants = {
   },
 };
 
-export const aboutFooterHRVariants = (delay: number = 0.5) => {
+export const footerContactHRVariants = (delay: number = 0.5) => {
   const variants: Variants = {
     closed: {
       y: -8,
@@ -103,7 +103,7 @@ export const aboutFooterHRVariants = (delay: number = 0.5) => {
   return variants;
 };
 
-export const aboutFooterHR2Variants: Variants = {
+export const footerContactHR2Variants: Variants = {
   closed: {
     y: -8,
     opacity: 0,
