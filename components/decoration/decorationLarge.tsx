@@ -1,6 +1,7 @@
 import React from "react";
 import {
   motion,
+  MotionStyle,
   useAnimationControls,
   useScroll,
   useTransform,
@@ -13,17 +14,24 @@ import {
 type Props = {
   delay: number;
   className?: string;
+  fixed?: boolean;
 };
 
-function DecorationLarge({ delay = 0.1, className }: Props) {
+function DecorationLarge({ delay = 0.1, className, fixed }: Props) {
   const ref = React.useRef(null);
   const { scrollYProgress } = useScroll({ target: ref });
   const wrapperStyleY = useTransform(scrollYProgress, [0, 1], [0, 300]);
 
+  let styles: MotionStyle = {};
+
+  if (!fixed) {
+    styles = { y: wrapperStyleY };
+  }
+
   return (
     <motion.div
       variants={decorationWrapperVariants(delay)}
-      style={{ y: wrapperStyleY }}
+      style={styles}
       initial="closed"
       animate="open"
       className={[

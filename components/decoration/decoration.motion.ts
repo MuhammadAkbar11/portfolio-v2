@@ -36,17 +36,29 @@ export const decorationXLVariants: Variants = {
 
 export const decorationSmallVariants: Variants = {
   closed: {
-    rotate: -20,
+    // rotate: -20,
     y: 0,
+    scale: 0,
   },
   open: {
+    scale: 1,
+    rotate: -20,
+    // y: 0,
+    opacity: 1,
+    transition: {
+      duration: 1,
+      ease: "easeInOut",
+    },
+  },
+  open2: {
+    scale: 1,
     rotate: -20,
     y: [-20, 20],
     opacity: 1,
     transition: {
+      duration: 2.5,
       repeat: Infinity,
-      repeatType: "mirror",
-      duration: 2,
+      repeatType: "reverse",
       ease: "easeInOut",
     },
   },
