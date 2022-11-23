@@ -1,5 +1,5 @@
 import { useCursorContext } from "@@context/CursorContext";
-import { motion, Variants } from "framer-motion";
+import { motion, useAnimation, Variants } from "framer-motion";
 import Link from "next/link";
 import React from "react";
 import { headerVariants } from "./header.motion";
@@ -7,20 +7,37 @@ import HeaderLinkItem from "./headerLinkItem";
 import HeaderSocials from "./headerSocials";
 import { NAV_LINKS } from "@utils/constants.utils";
 import { useRouter } from "next/router";
+import useScrollUp from "@hooks/useScrollUp";
 
 const Header = () => {
+  const { isScrolling, isYTop } = useScrollUp();
   const cursorContext = useCursorContext();
-  const variants: Variants = headerVariants(0.5);
 
+  const variants: Variants = headerVariants(0.5);
   const router = useRouter();
 
-  console.log(router);
+  const controls = useAnimation();
+
+  React.useEffect(() => {
+    controls.start("open");
+    if (isScrolling) {
+      if (isYTop) {
+        controls.start("openTop");
+      } else {
+        controls.start("openScroll");
+      }
+    }
+
+    return () => {
+      controls.start("closed");
+    };
+  }, [variants, isScrolling, isYTop]);
   return (
     <motion.header
       variants={variants}
       initial="closed"
-      animate="open"
-      className="fixed w-full flex justify-between flex-row flex-wrap items-center text-primary px-0 md:px-0 h-[85px] top-0 left-0 right-0 box-border border-b-[1px] border-slate/30 bg-secondary z-50 "
+      animate={controls}
+      className="fixed w-full flex justify-between flex-row flex-wrap items-center text-primary px-0 md:px-0  top-0 left-0 right-0 box-border border-b-[1px] border-slate/30 bg-secondary/95 z-50 backdrop-blur-sm  "
     >
       {/* Logo */}
       <nav className="px-6 sm:px-8 h-full flex justify-start items-center w-max  text-light">
