@@ -15,6 +15,7 @@ module.exports = {
         primary: "#64ffda",
         "wire-primary": "#B7FFEE",
         secondary: "#040918",
+        "dark-secondary": "#01050f",
         "light-secondary": "#0b1841",
         "lightness-secondary": "#142145",
         slate: "#8892B0",
