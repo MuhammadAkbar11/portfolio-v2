@@ -1,7 +1,8 @@
+import React from "react";
+import Link from "next/link";
+import clsx from "classnames";
 import { useCursorContext } from "@@context/CursorContext";
 import { motion, useAnimation, Variants } from "framer-motion";
-import Link from "next/link";
-import React from "react";
 import { headerVariants } from "./header.motion";
 import HeaderLinkItem from "./headerLinkItem";
 import HeaderSocials from "./headerSocials";
@@ -74,7 +75,13 @@ const Header = () => {
       <nav className=" relative px-6 sm:px-8 h-full flex justify-end items-center w-max border-x-[1px] border-light/25 hover:cursor-pointer box-border ">
         <Link
           href="/contact"
-          className="hidden md:flex text-base font-mono text-slate italic hover:text-light/80 py-2 px-5 "
+          className={clsx(
+            "hidden md:flex text-base font-mono py-2 px-5 italic ",
+            {
+              "text-slate hover:text-light/80": router.pathname !== "/contact",
+              "text-primary": router.pathname === "/contact",
+            }
+          )}
           onMouseEnter={() => cursorContext.cursorEnter("navlink")}
           onMouseLeave={() => cursorContext.cursorLeave("default")}
         >
