@@ -11,7 +11,7 @@ type Props = {
   fixed?: boolean;
 };
 
-function DecorationLarge({ delay = 0.1, className, fixed }: Props) {
+function DecorationXL({ delay = 0.1, className, fixed }: Props) {
   const ref = React.useRef(null);
   const { scrollYProgress } = useScroll({ target: ref });
   const wrapperStyleY = useTransform(scrollYProgress, [0, 1], [0, 300]);
@@ -29,7 +29,7 @@ function DecorationLarge({ delay = 0.1, className, fixed }: Props) {
       initial="closed"
       animate="open"
       className={[
-        "absolute -z-1 h-[200px] w-[200px] md:h-[350px] md:w-[350px]",
+        "absolute -z-1 h-[350px] w-[350px] md:h-[500px] md:w-[500px]",
         className,
       ].join(" ")}
     >
@@ -43,8 +43,8 @@ function DecorationLarge({ delay = 0.1, className, fixed }: Props) {
   );
 }
 
-DecorationLarge.defaultProps = {
+DecorationXL.defaultProps = {
   className: "right-[5%] top-[10%]",
 };
 
-export default DecorationLarge;
+export default DecorationXL;

@@ -28,7 +28,7 @@ export const decorationXLVariants: Variants = {
       repeat: Infinity,
       repeatType: "loop",
       repeatDelay: 0.01,
-      duration: 25,
+      duration: 28,
       ease: "linear",
     },
   },
