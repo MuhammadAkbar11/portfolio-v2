@@ -7,10 +7,11 @@ import AboutContent from "@components/aboutContent";
 import AboutSkill from "@components/aboutSkill";
 import Footer from "@layouts/footer";
 import { useCursorContext } from "@@context/CursorContext";
+import useMediaQuery from "@hooks/useMediaQuery";
 
 export default function About() {
   const cursorContext = useCursorContext();
-
+  const mdScreen = useMediaQuery("(min-width: 768px)");
   return (
     <>
       <Head>
@@ -19,8 +20,12 @@ export default function About() {
       </Head>
       <Template>
         <section className=" z-[5] bg-secondary/95 h-max relative  flex flex-col w-full  justify-start flex-1 flex-wrap pt-28 pb-10 overflow-hidden">
-          <Decoration size="lg" delay={0.1} />
-          <Decoration size="sm" delay={0.2} />
+          {mdScreen ? <Decoration size="lg" delay={0.1} /> : null}
+          <Decoration
+            size="sm"
+            delay={0.2}
+            className=" right-[10%] md:left-[10%] top-[20%]"
+          />
           <div
             className="px-6 md:px-20 md:pb-8 "
             onMouseEnter={() => {
