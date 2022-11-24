@@ -1,3 +1,4 @@
+import { useRouter } from "next/router";
 import React from "react";
 import FooterContact from "./footerContact";
 import FooterEnd from "./footerEnd";
@@ -5,9 +6,11 @@ import FooterEnd from "./footerEnd";
 type Props = {};
 
 function Footer({}: Props) {
+  const { pathname } = useRouter();
+
   return (
     <footer>
-      <FooterContact />
+      {pathname !== "/contact" ? <FooterContact /> : null}
       <FooterEnd />
     </footer>
   );

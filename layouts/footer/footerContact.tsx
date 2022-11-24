@@ -22,7 +22,7 @@ function FooterContact({}: Props) {
   const [borderDelay, setBorderDelay] = React.useState(0.6);
   const [iconDelay, setIconDelay] = React.useState(0.9);
 
-  const ref = React.useRef<HTMLAnchorElement | null>(null);
+  const ref = React.useRef<HTMLDivElement | null>(null);
   const router = useRouter();
 
   const cursorContext = useCursorContext();
@@ -39,13 +39,12 @@ function FooterContact({}: Props) {
 
   return (
     <section className="w-100 relative py-20 min-h-[20vh] lg:min-h-[80vh] overflow-hidden bg-secondary/90  px-6 md:px-20 flex flex-col justify-center ">
-      <div className="flex h-full justify-start items-center ">
+      <div className="flex h-full justify-start items-center " ref={ref}>
         <motion.a
           variants={footerContactAnchorIVariants}
           initial="closed"
           animate="open"
           whileHover="hover"
-          ref={ref}
           href={"/contact"}
           className="uppercase flex flex-col w-max no-underline relative overflow-hidden "
           onMouseEnter={() => {
