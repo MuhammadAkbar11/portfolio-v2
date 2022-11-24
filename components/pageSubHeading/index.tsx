@@ -13,7 +13,7 @@ function PageSubHeading({ text, delay }: Props) {
         variants={pageSubHeadVariant(delay)}
         initial="closed"
         animate="open"
-        className=" font-mono text-lg italic text-primary "
+        className=" font-mono text-base  md:text-lg italic text-primary "
       >{`_${text}`}</motion.p>
     </div>
   );
