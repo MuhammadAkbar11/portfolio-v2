@@ -101,12 +101,12 @@ function FooterContact({}: Props) {
                     transformOrigin: transformOriginIn,
                   }}
                   variants={footerContactHRVariants(borderDelay)}
-                  className=" h-[0.5px] absolute z-10 left-0 bottom-0 w-full bg-wire-primary/25 border-wire-primary/25 mt-2 "
+                  className=" h-[2px] absolute z-10 left-0 bottom-0 w-full bg-wire-primary/25 border-wire-primary/25 mt-2 "
                 />
                 <motion.hr
                   style={{ transformOrigin: "-100% -100%" }}
                   variants={footerContactHR2Variants}
-                  className=" h-[0.5px] absolute z-10 left-0 bottom-0 w-full bg-slate border-slate mt-2 "
+                  className=" h-[2px] absolute z-10 left-0 bottom-0 w-full bg-primary border-primary mt-2 "
                 />
               </div>
             </>
