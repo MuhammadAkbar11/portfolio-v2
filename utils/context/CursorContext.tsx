@@ -41,6 +41,7 @@ export function CursorProvider({ children }: Props) {
       }, 100);
     }
   };
+
   const cursorLeave = (variant: string) => {
     setCursorVariant(variant);
     setCursorContent(null);

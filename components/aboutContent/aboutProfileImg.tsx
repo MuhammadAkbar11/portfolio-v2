@@ -31,9 +31,9 @@ function AboutProfileImg({}: Props) {
           variants={aboutContentImgVariants}
           initial="closed"
           animate={isVisible ? "open" : ""}
-          src="/images/profile.jpeg"
+          src="/images/profile-2.jpg"
           alt="profile"
-          className=" object-cover h-full w-full   "
+          className="object-cover h-full w-full"
         />
       </motion.div>
     </div>

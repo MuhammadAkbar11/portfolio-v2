@@ -11,7 +11,6 @@ export default function Home() {
         <title>Muhammad Akbar L</title>
         <meta name="description" content="Muhammad Akbar Portfolio" />
       </Head>
-
       <Template>
         <section className=" relative overflow-hidden flex flex-col h-full justify-start flex-1 w-full ">
           <Decoration

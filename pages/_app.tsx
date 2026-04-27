@@ -4,6 +4,7 @@ import { LayoutProvider } from "@@context/LayoutContext";
 import { useEffect, useState } from "react";
 import useMediaQuery from "@hooks/useMediaQuery";
 import CustomCursor from "@components/customCursor";
+import MobileMenu from "@components/mobileMenu";
 import Head from "next/head";
 
 export default function App({ Component, pageProps }: AppProps) {
@@ -37,6 +38,7 @@ export default function App({ Component, pageProps }: AppProps) {
       </Head>
       <LayoutProvider>
         {mdscreen ? <CustomCursor /> : null}
+        <MobileMenu />
         <Component {...pageProps} />
       </LayoutProvider>
     </>

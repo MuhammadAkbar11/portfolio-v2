@@ -51,7 +51,7 @@ function AboutProfileText({}: Props) {
             animate={isVisibleParagraph ? "open" : ""}
             className=" text-base font-body text-slate leading-6 mb-6 "
           >
-            I've always had an interest for technology and computers, but I
+            I&apos;ve always had an interest for technology and computers, but I
             eventually discovered my passion in web development.
           </motion.p>
           <motion.p

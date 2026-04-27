@@ -28,6 +28,9 @@ module.exports = {
         "heading-2": ["'Work Sans'", "sans-serif"],
         body: ["'Space Grotesk'", "sans-serif"],
       },
+      transitionTimingFunction: {
+        expo: "cubic-bezier(0.7, 0, 0.3, 1)",
+      },
     },
   },
 };

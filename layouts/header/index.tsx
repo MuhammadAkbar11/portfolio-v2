@@ -2,6 +2,7 @@ import React from "react";
 import Link from "next/link";
 import clsx from "classnames";
 import { useCursorContext } from "@@context/CursorContext";
+import { useLayout } from "@@context/LayoutContext";
 import { motion, useAnimation, Variants } from "framer-motion";
 import { headerVariants } from "./header.motion";
 import HeaderLinkItem from "./headerLinkItem";
@@ -13,6 +14,7 @@ import useScrollUp from "@hooks/useScrollUp";
 const Header = () => {
   const { isScrolling, isYTop } = useScrollUp();
   const cursorContext = useCursorContext();
+  const { toggleMobileMenu } = useLayout();
 
   const variants: Variants = headerVariants(0.5);
   const router = useRouter();
@@ -33,6 +35,7 @@ const Header = () => {
       controls.start("closed");
     };
   }, [variants, isScrolling, isYTop]);
+
   return (
     <motion.header
       variants={variants}
@@ -50,7 +53,7 @@ const Header = () => {
           <img src="/images/logo.png" className=" h-[50px] my-0" alt="Logo" />
         </Link>
       </nav>
-      <nav className=" hidden lg:flex px-6 md:px-20 mx-auto h-full items-center flex-1 md:justify-end text-primary ">
+      <nav className=" hidden lg:flex px-6 md:px-20 mx-auto h-full items-center flex-1 md:justify-end md:pr-40 text-primary ">
         <ul className="  flex h-full py-2 items-center ">
           {NAV_LINKS.map(nav => {
             return (
@@ -87,12 +90,12 @@ const Header = () => {
         >
           {`_GetInTouch`}
         </Link>
-        <a
-          href="#/"
+        <button
+          onClick={toggleMobileMenu}
           className=" text-center md:hidden text-base font-mono text-slate italic hover:text-light"
         >
           _Menu
-        </a>
+        </button>
       </nav>
     </motion.header>
   );

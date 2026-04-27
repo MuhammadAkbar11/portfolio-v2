@@ -16,7 +16,8 @@ function ContactContent({}: Props) {
         className=" py-4 md:py-6 pr-16 "
       >
         If you want to learn more about me, what I can do for you, or simply
-        talk, send me a message and I'll get back to you as soon as possible!
+        talk, send me a message and I&apos;ll get back to you as soon as
+        possible!
       </motion.p>
       <MailLink delay={1} />
       <div className=" flex-1 pt-6">
