@@ -3,10 +3,10 @@ import { useRouter } from "next/router";
 
 const SITE_NAME = "Muhammad Akbar L";
 const DEFAULT_DESCRIPTION =
-  "Frontend Developer specializing in React, Next.js, and modern web technologies. Explore my portfolio, projects, and get in touch.";
+  "Web developer focused on building modern, high-performance websites with clean design, smooth interactions, and user-centered experiences.";
 const DEFAULT_IMAGE = "/og/og-image.png";
 const BASE_URL =
-  process.env.NEXT_PUBLIC_BASE_URL || "https://muhammadakbar11.dev";
+  process.env.NEXT_PUBLIC_BASE_URL || "https://muhammadakbar11.xyz";
 
 type SEOProps = {
   title?: string;
