@@ -2,7 +2,6 @@ import React, { useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { useLayout } from "@@context/LayoutContext";
 import { useRouter } from "next/router";
-import Link from "next/link";
 import clsx from "classnames";
 import {
   mobileMenuVariants,
@@ -16,9 +15,11 @@ import { NAV_LINKS } from "@utils/constants.utils";
 import GithubIcon from "@components/icon/github";
 import LinkedInIcon from "@components/icon/linkedIn";
 import Image from "next/image";
+import { useTransition } from "@@context/TransitionContext";
 
 const MobileMenu = () => {
   const { isMobileMenuOpen, closeMobileMenu } = useLayout();
+  const { navigateTo } = useTransition();
   const router = useRouter();
 
   // Disable scroll when menu is open
@@ -57,14 +58,20 @@ const MobileMenu = () => {
               className="flex justify-between items-center mb-16"
             >
               <motion.div>
-                <Link href="/" onClick={closeMobileMenu}>
+                <a
+                  onClick={() => {
+                    closeMobileMenu();
+                    navigateTo("/");
+                  }}
+                  className="cursor-pointer"
+                >
                   <Image
                     src="/images/logo.png"
                     width={40}
                     height={40}
                     alt="Logo"
                   />
-                </Link>
+                </a>
               </motion.div>
               <button
                 onClick={closeMobileMenu}
@@ -85,11 +92,13 @@ const MobileMenu = () => {
                   variants={mobileMenuItemVariants}
                   className="relative group"
                 >
-                  <Link
-                    href={link.url}
-                    onClick={closeMobileMenu}
+                  <a
+                    onClick={() => {
+                      closeMobileMenu();
+                      navigateTo(link.url);
+                    }}
                     className={clsx(
-                      "group relative font-heading text-[12vw] sm:text-[10vw] uppercase leading-none block overflow-hidden",
+                      "group relative font-heading text-[12vw] sm:text-[10vw] uppercase leading-none block overflow-hidden cursor-pointer",
                       router.pathname === link.url
                         ? "text-primary"
                         : "text-light",
@@ -103,7 +112,7 @@ const MobileMenu = () => {
                     <span className="absolute inset-0 block translate-y-full transition-transform duration-500 ease-expo group-hover:translate-y-0 text-primary">
                       {link.name}
                     </span>
-                  </Link>
+                  </a>
                 </motion.div>
               ))}
             </motion.nav>

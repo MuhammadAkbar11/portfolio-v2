@@ -1,19 +1,22 @@
 import React from "react";
 import { motion } from "framer-motion";
+import { exitColumnVariants } from "./exitOverlay.motion";
 import { COLORS } from "@utils/constants.utils";
-import { columnVariants } from "./pageTransition.motion";
 
-interface TransitionColumnProps {
+interface ExitColumnProps {
   index: number;
   direction: "forward" | "backward";
+  onComplete: (variant: any, index: number) => void;
 }
 
-const TransitionColumn = ({ index, direction }: TransitionColumnProps) => {
+const ExitColumn = ({ index, direction, onComplete }: ExitColumnProps) => {
   return (
     <motion.div
-      key={index}
       custom={{ index, direction }}
-      variants={columnVariants}
+      variants={exitColumnVariants}
+      initial="hidden"
+      animate="covered"
+      onAnimationComplete={(variant) => onComplete(variant, index)}
       style={{
         position: "absolute",
         top: 0,
@@ -27,4 +30,4 @@ const TransitionColumn = ({ index, direction }: TransitionColumnProps) => {
   );
 };
 
-export default TransitionColumn;
+export default ExitColumn;

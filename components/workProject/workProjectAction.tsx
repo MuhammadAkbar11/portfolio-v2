@@ -6,7 +6,7 @@ import {
   workProjectActionBoxVariants,
 } from "./workProject.motion";
 import { useCursorContext } from "@@context/CursorContext";
-import { useRouter } from "next/router";
+import { useTransition } from "@@context/TransitionContext";
 import useMediaQuery from "@hooks/useMediaQuery";
 
 type Props = {
@@ -16,13 +16,13 @@ type Props = {
 
 function WorkProjectAction({ href, name }: Props) {
   const cursorContext = useCursorContext();
-  const router = useRouter();
+  const { navigateTo } = useTransition();
 
   const mdScreen = useMediaQuery("(min-width: 768px)");
 
   const onClickHandler = (e: React.MouseEvent<HTMLAnchorElement>) => {
     e.preventDefault();
-    router.push(href);
+    navigateTo(href);
   };
 
   return (

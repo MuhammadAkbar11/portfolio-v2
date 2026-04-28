@@ -1,6 +1,6 @@
 import React from "react";
 import { useCursorContext } from "@@context/CursorContext";
-import Link from "next/link";
+import { useTransition } from "@@context/TransitionContext";
 import clsx from "classnames";
 
 type Props = {
@@ -11,6 +11,7 @@ type Props = {
 
 function HeaderLinkItem({ href, text, active }: Props) {
   const cursorContext = useCursorContext();
+  const { navigateTo } = useTransition();
 
   const classNm = clsx("font-mono  italic  cursor-pointer", {
     "text-slate hover:text-light": !active,
@@ -23,7 +24,15 @@ function HeaderLinkItem({ href, text, active }: Props) {
       onMouseEnter={() => cursorContext.cursorEnter("navlink")}
       onMouseLeave={() => cursorContext.cursorLeave("default")}
     >
-      <Link href={href} className="py-2 px-6">{`_${text}`}</Link>
+      <a
+        onClick={(e) => {
+          e.preventDefault();
+          navigateTo(href);
+        }}
+        className="py-2 px-6"
+      >
+        {`_${text}`}
+      </a>
     </li>
   );
 }

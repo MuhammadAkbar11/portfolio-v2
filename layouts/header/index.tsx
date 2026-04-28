@@ -8,6 +8,7 @@ import { headerVariants } from "./header.motion";
 import HeaderLinkItem from "./headerLinkItem";
 import HeaderSocials from "./headerSocials";
 import { NAV_LINKS } from "@utils/constants.utils";
+import { useTransition } from "@@context/TransitionContext";
 import { useRouter } from "next/router";
 import useScrollUp from "@hooks/useScrollUp";
 import Image from "next/image";
@@ -16,6 +17,7 @@ const Header = () => {
   const { isScrolling, isYTop } = useScrollUp();
   const cursorContext = useCursorContext();
   const { toggleMobileMenu } = useLayout();
+  const { navigateTo } = useTransition();
 
   const variants: Variants = headerVariants(0.5);
   const router = useRouter();
@@ -47,10 +49,11 @@ const Header = () => {
     >
       {/* Logo */}
       <nav className="px-6 sm:px-8 h-full flex justify-start items-center w-max  text-light">
-        <Link
-          href="/"
+        <a
+          onClick={() => navigateTo("/")}
           onMouseEnter={() => cursorContext.cursorEnter("navlink")}
           onMouseLeave={() => cursorContext.cursorLeave("default")}
+          className="cursor-pointer"
         >
           <Image
             src="/images/logo.png"
@@ -59,7 +62,7 @@ const Header = () => {
             className="my-0"
             alt="Logo"
           />
-        </Link>
+        </a>
       </nav>
       <nav className=" hidden lg:flex px-6 md:px-20 mx-auto h-full items-center flex-1 md:justify-end md:pr-40 text-primary ">
         <ul className="  flex h-full py-2 items-center ">
@@ -84,10 +87,10 @@ const Header = () => {
         <HeaderSocials />
       </nav>
       <nav className=" relative px-6 sm:px-8 h-full flex justify-end items-center w-max border-x-[1px] border-light/25 hover:cursor-pointer box-border ">
-        <Link
-          href="/contact"
+        <a
+          onClick={() => navigateTo("/contact")}
           className={clsx(
-            "hidden md:flex text-base font-mono py-2 px-5 italic ",
+            "hidden md:flex text-base font-mono py-2 px-5 italic cursor-pointer",
             {
               "text-slate hover:text-light/80": router.pathname !== "/contact",
               "text-primary": router.pathname === "/contact",
@@ -97,7 +100,7 @@ const Header = () => {
           onMouseLeave={() => cursorContext.cursorLeave("default")}
         >
           {`_GetInTouch`}
-        </Link>
+        </a>
         <button
           onClick={toggleMobileMenu}
           className=" text-center md:hidden text-base font-mono text-slate italic hover:text-light"

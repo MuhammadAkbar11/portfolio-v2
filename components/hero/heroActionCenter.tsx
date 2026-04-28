@@ -1,5 +1,5 @@
 import { useCursorContext } from "@@context/CursorContext";
-import { useRouter } from "next/router";
+import { useTransition } from "@@context/TransitionContext";
 import React from "react";
 
 type Props = {
@@ -9,10 +9,10 @@ type Props = {
 
 function HeroActionCenter({ href, name }: Props) {
   const cursorContext = useCursorContext();
-  const router = useRouter();
+  const { navigateTo } = useTransition();
   const onClickHandler = (e: React.MouseEvent<HTMLAnchorElement>) => {
     e.preventDefault();
-    router.push(href);
+    navigateTo(href);
   };
 
   return (

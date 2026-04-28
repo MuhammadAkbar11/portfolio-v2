@@ -10,7 +10,7 @@ import {
   footerContactHRVariants,
 } from "./footer.motion";
 import ArrowRight from "@assets/arrow-right2.svg";
-import { useRouter } from "next/router";
+import { useTransition } from "@@context/TransitionContext";
 import { useCursorContext } from "@@context/CursorContext";
 import clsx from "classnames";
 
@@ -23,7 +23,7 @@ function FooterContact({}: Props) {
   const [iconDelay, setIconDelay] = React.useState(0.9);
 
   const ref = React.useRef<HTMLDivElement | null>(null);
-  const router = useRouter();
+  const { navigateTo } = useTransition();
 
   const cursorContext = useCursorContext();
 
@@ -58,7 +58,7 @@ function FooterContact({}: Props) {
           }}
           onClick={e => {
             e.preventDefault();
-            router.push("/contact");
+            navigateTo("/contact");
           }}
         >
           {isVisible ? (
