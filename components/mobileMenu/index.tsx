@@ -36,9 +36,10 @@ const MobileMenu = () => {
   const links = [...NAV_LINKS, { key: "#3", name: "Contact", url: "/contact" }];
 
   return (
-    <AnimatePresence>
+    <AnimatePresence mode="wait">
       {isMobileMenuOpen && (
         <motion.div
+          key="mobile-menu"
           variants={mobileMenuVariants}
           initial="closed"
           animate="open"
@@ -53,9 +54,6 @@ const MobileMenu = () => {
             {/* Header Area */}
             <motion.div
               variants={mobileMenuHeaderPanelVariants}
-              initial={"closed"}
-              animate={"open"}
-              exit={"closed"}
               className="flex justify-between items-center mb-16"
             >
               <motion.div>
