@@ -10,6 +10,7 @@ import HeaderSocials from "./headerSocials";
 import { NAV_LINKS } from "@utils/constants.utils";
 import { useRouter } from "next/router";
 import useScrollUp from "@hooks/useScrollUp";
+import Image from "next/image";
 
 const Header = () => {
   const { isScrolling, isYTop } = useScrollUp();
@@ -34,6 +35,7 @@ const Header = () => {
     return () => {
       controls.start("closed");
     };
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [variants, isScrolling, isYTop]);
 
   return (
@@ -50,7 +52,13 @@ const Header = () => {
           onMouseEnter={() => cursorContext.cursorEnter("navlink")}
           onMouseLeave={() => cursorContext.cursorLeave("default")}
         >
-          <img src="/images/logo.png" className=" h-[50px] my-0" alt="Logo" />
+          <Image
+            src="/images/logo.png"
+            width={50}
+            height={50}
+            className="my-0"
+            alt="Logo"
+          />
         </Link>
       </nav>
       <nav className=" hidden lg:flex px-6 md:px-20 mx-auto h-full items-center flex-1 md:justify-end md:pr-40 text-primary ">
@@ -83,7 +91,7 @@ const Header = () => {
             {
               "text-slate hover:text-light/80": router.pathname !== "/contact",
               "text-primary": router.pathname === "/contact",
-            }
+            },
           )}
           onMouseEnter={() => cursorContext.cursorEnter("navlink")}
           onMouseLeave={() => cursorContext.cursorLeave("default")}

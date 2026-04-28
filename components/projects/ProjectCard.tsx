@@ -8,6 +8,7 @@ import {
   projectContentVariants,
   projectImageVariants,
 } from "./project.motion";
+import Image from "next/image";
 
 type Props = {
   project: WorkProjectItem;
@@ -27,13 +28,19 @@ function ProjectCard({ project, index }: Props) {
     >
       <div className="grid grid-cols-1 lg:grid-cols-5 h-full">
         <div className="relative col-span-1 lg:col-span-2 overflow-hidden border-b lg:border-b-0 lg:border-r border-slate/20 h-[300px] sm:h-[450px] lg:h-auto">
-          <motion.img
-            src={project.image}
-            alt={`${project.title} preview`}
+          <motion.div
             variants={projectImageVariants}
             whileHover="hover"
-            className="h-full w-full object-cover"
-          />
+            className="h-full w-full relative"
+          >
+            <Image
+              src={project.image}
+              alt={`${project.title} preview`}
+              fill
+              className="object-cover"
+              sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 40vw"
+            />
+          </motion.div>
         </div>
         <motion.div
           variants={projectContentVariants}

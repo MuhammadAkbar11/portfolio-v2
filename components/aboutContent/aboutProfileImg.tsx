@@ -5,6 +5,7 @@ import {
   aboutContentImgBoxVariants,
   aboutContentImgVariants,
 } from "./aboutContent.motion";
+import Image from "next/image";
 
 type Props = {};
 
@@ -27,14 +28,21 @@ function AboutProfileImg({}: Props) {
         animate={isVisible ? "open" : ""}
         className=" w-full sm:w-[70%] md:w-[50%] lg:w-[80%] flex mx-auto border p-3 md:py-5 md:px-5 h-[500px] "
       >
-        <motion.img
+        <motion.div
           variants={aboutContentImgVariants}
           initial="closed"
           animate={isVisible ? "open" : ""}
-          src="/images/profile-2.jpg"
-          alt="profile"
-          className="object-cover h-full w-full"
-        />
+          className="relative h-full w-full"
+        >
+          <Image
+            src="/images/profile-2.jpg"
+            alt="profile"
+            fill
+            className="object-cover"
+            sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 40vw"
+            priority
+          />
+        </motion.div>
       </motion.div>
     </div>
   );
