@@ -1,4 +1,3 @@
-import Head from "next/head";
 import Template from "@layouts/template";
 import Decoration from "@components/decoration";
 import HeadingAnimated from "@components/headingAnimated";
@@ -8,16 +7,17 @@ import AboutSkill from "@components/aboutSkill";
 import Footer from "@layouts/footer";
 import { useCursorContext } from "@@context/CursorContext";
 import useMediaQuery from "@hooks/useMediaQuery";
+import SEO from "@components/seo";
 
 export default function About() {
   const cursorContext = useCursorContext();
   const mdScreen = useMediaQuery("(min-width: 768px)");
   return (
     <>
-      <Head>
-        <title>About || Muhammad Akbar L</title>
-        <meta name="description" content="Muhammad Akbar.L Portfolio" />
-      </Head>
+      <SEO
+        title="About"
+        description="Learn more about Muhammad Akbar L — a Frontend Developer passionate about building modern, performant, and visually stunning web experiences."
+      />
       <Template>
         <section className=" z-[5] bg-secondary/95 h-max relative  flex flex-col w-full  justify-start flex-1 flex-wrap pt-28 pb-10 overflow-hidden">
           {mdScreen ? <Decoration size="lg" delay={0.1} /> : null}

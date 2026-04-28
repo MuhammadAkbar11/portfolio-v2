@@ -5,9 +5,9 @@ import HeadingAnimated from "@components/headingAnimated";
 import PageSubHeading from "@components/pageSubHeading";
 import Footer from "@layouts/footer";
 import Template from "@layouts/template";
-import Head from "next/head";
 import useMediaQuery from "@hooks/useMediaQuery";
 import ContactContent from "@components/contactContent";
+import SEO from "@components/seo";
 
 type Props = {};
 
@@ -16,10 +16,10 @@ function Contact({}: Props) {
   const mdScreen = useMediaQuery("(min-width: 768px)");
   return (
     <>
-      <Head>
-        <title>Contact || Muhammad Akbar L</title>
-        <meta name="description" content="Muhammad Akbar.L Portfolio" />
-      </Head>
+      <SEO
+        title="Contact"
+        description="Get in touch with Muhammad Akbar L — open for freelance work, collaborations, and new opportunities."
+      />
       <Template>
         <div
           className=" z-[5] bg-secondary/70 relative flex-1 flex flex-col md:flex-row items-stretch w-full flex-wrap  overflow-hidden px-6 md:px-24 "

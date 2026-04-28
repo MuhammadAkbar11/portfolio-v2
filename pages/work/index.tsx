@@ -1,20 +1,20 @@
-import Head from "next/head";
 import Template from "@layouts/template";
 import HeadingAnimated from "@components/headingAnimated";
 import PageSubHeading from "@components/pageSubHeading";
 import Footer from "@layouts/footer";
 import { useCursorContext } from "@@context/CursorContext";
 import Projects from "@components/projects";
+import SEO from "@components/seo";
 
 export default function Work() {
   const cursorContext = useCursorContext();
 
   return (
     <>
-      <Head>
-        <title>Work || Muhammad Akbar L</title>
-        <meta name="description" content="Muhammad Akbar.L Portfolio" />
-      </Head>
+      <SEO
+        title="Work"
+        description="Explore projects and work built by Muhammad Akbar L — from e-commerce platforms to real-time applications using React, Next.js, Node.js, and more."
+      />
       <Template contentClass="overflow-hidden">
         <section className=" bg-secondary/95 h-max relative  flex flex-col w-full  justify-start flex-1 flex-wrap pt-28 pb-10 overflow-hidden">
           <div
