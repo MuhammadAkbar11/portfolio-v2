@@ -6,6 +6,7 @@ import ProjectLink from "./ProjectLink";
 import {
   projectCardVariants,
   projectContentVariants,
+  projectImageBox,
   projectImageVariants,
 } from "./project.motion";
 import Image from "next/image";
@@ -27,7 +28,10 @@ function ProjectCard({ project, index }: Props) {
       className="overflow-hidden border border-slate/25 mb-12 last:mb-0 bg-secondary/70 min-h-[70vh] lg:min-h-[85vh] flex flex-col justify-center"
     >
       <div className="grid grid-cols-1 lg:grid-cols-5 h-full">
-        <div className="relative col-span-1 lg:col-span-2 overflow-hidden border-b lg:border-b-0 lg:border-r border-slate/20 h-[300px] sm:h-[450px] lg:h-auto">
+        <motion.div
+          variants={projectImageBox}
+          className="relative col-span-1 lg:col-span-2 overflow-hidden border-b lg:border-b-0 lg:border-r border-slate/20 h-[300px] sm:h-[450px] lg:h-auto"
+        >
           <motion.div
             variants={projectImageVariants}
             whileHover="hover"
@@ -41,7 +45,7 @@ function ProjectCard({ project, index }: Props) {
               sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 40vw"
             />
           </motion.div>
-        </div>
+        </motion.div>
         <motion.div
           variants={projectContentVariants}
           className="col-span-1 lg:col-span-3 flex flex-col px-6 sm:px-12 py-10 sm:py-16"

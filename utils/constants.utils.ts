@@ -41,7 +41,7 @@ export const NAV_LINKS = [
 
 export const SKILLS = [
   "Javascript",
-  "Typescript (Beginner)",
+  "Typescript",
   "HTML",
   "CSS & SCSS",
   "React.js",
@@ -50,6 +50,7 @@ export const SKILLS = [
   "Express.js",
   "MySQL",
   "MongoDB",
+  "Prisma ORM",
   "Bootstrap",
   "Tailwindcss",
   "Material UI",
@@ -206,6 +207,11 @@ export const WORK_PROJECTS: WorkProjectItem[] = [
         key: "portfolio-mgmt-github",
         label: "Github",
         href: "https://github.com/MuhammadAkbar11/auction-marketplace",
+      },
+      {
+        key: "portfolio-mgmt-url",
+        label: "Live Demo",
+        href: "https://projexly-n67q.onrender.com/",
       },
     ],
   },
