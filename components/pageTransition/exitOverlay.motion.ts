@@ -8,15 +8,16 @@ export interface ColumnCustom {
 
 export const exitColumnVariants: Variants = {
   hidden: ({ direction }: ColumnCustom) => ({
-    clipPath: direction === "backward" ? "inset(0 0 0 100%)" : "inset(0 100% 0 0)",
+    scaleX: 0,
+    transformOrigin: direction === "backward" ? "right" : "left",
   }),
   covered: ({ index, direction }: ColumnCustom) => {
-    const delay = direction === "backward" ? (5 - index) * 0.07 : index * 0.07;
+    const delay = direction === "backward" ? (5 - index) * 0.05 : index * 0.05;
     return {
-      clipPath: "inset(0 0% 0 0)",
+      scaleX: 1,
       transition: {
-        duration: 0.75,
-        ease: MOTION_EASE.default,
+        duration: 0.5,
+        ease: [0.6, 0.01, -0.05, 0.95],
         delay,
       },
     };

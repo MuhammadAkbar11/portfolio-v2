@@ -8,7 +8,7 @@ import ExitColumn from "./ExitColumn";
 const COLUMN_COUNT = 6;
 
 const ExitOverlay = () => {
-  const { direction, onExitOverlayComplete } = useTransition();
+  const { direction, onExitOverlayComplete, phase } = useTransition();
 
   const handleAnimationComplete = (variant: any, index: number) => {
     const isLast =
@@ -21,10 +21,10 @@ const ExitOverlay = () => {
   return (
     <div
       className="fixed top-0 left-0 w-screen h-screen pointer-events-auto bg-transparent"
-      style={{ zIndex: 9900 }}
+      style={{ zIndex: 9999 }}
     >
       {/* Static Borders Layer */}
-      <div className="absolute inset-0 flex pointer-events-none w-full h-full z-10">
+      <div className="absolute bg-transparent inset-0 flex pointer-events-none w-full h-full z-10">
         {Array.from({ length: COLUMN_COUNT }).map((_, i) => (
           <div
             key={`border-${i}`}

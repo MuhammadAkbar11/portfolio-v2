@@ -3,12 +3,11 @@ import React, {
   useContext,
   useState,
   useCallback,
-  useRef,
   useEffect,
 } from "react";
 import { useRouter } from "next/router";
 
-export type TransitionPhase = "idle" | "exit" | "cover" | "reveal";
+export type TransitionPhase = "idle" | "exit" | "cover" | "waiting" | "reveal";
 
 interface TransitionContextType {
   isTransitioning: boolean;
@@ -70,15 +69,12 @@ export const TransitionProvider: React.FC<{ children: React.ReactNode }> = ({
 
   useEffect(() => {
     const handleRouteChangeComplete = () => {
-      // Add delay hide open overlay so the visual animation can animate properly
-      setTimeout(() => {
-        setPhase(prev => {
-          if (prev === "cover") {
-            return "reveal";
-          }
-          return prev;
-        });
-      }, 1000);
+      setPhase(prev => {
+        if (prev === "cover") {
+          return "waiting";
+        }
+        return prev;
+      });
     };
 
     router.events.on("routeChangeComplete", handleRouteChangeComplete);
@@ -86,6 +82,15 @@ export const TransitionProvider: React.FC<{ children: React.ReactNode }> = ({
       router.events.off("routeChangeComplete", handleRouteChangeComplete);
     };
   }, [router.events]);
+
+  useEffect(() => {
+    if (phase === "waiting") {
+      const timer = setTimeout(() => {
+        setPhase("reveal");
+      }, 1600); // 100ms delay for render stabilization
+      return () => clearTimeout(timer);
+    }
+  }, [phase]);
 
   return (
     <TransitionContext.Provider

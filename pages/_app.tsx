@@ -27,10 +27,10 @@ function AppContent({ Component, pageProps }: AppProps) {
       if (loader) {
         setTimeout(() => {
           loader.style.display = "none";
-        }, 1000);
+        }, 900);
         setTimeout(() => {
           setShowChild(true);
-        }, 1100);
+        }, 1000);
       }
     }
   }, []);
@@ -51,9 +51,11 @@ function AppContent({ Component, pageProps }: AppProps) {
         <MobileMenu />
 
         {/* Dual Overlay System */}
-        <AnimatePresence>
+        <AnimatePresence mode="wait">
           {phase === "exit" && <ExitOverlay key="exit-overlay" />}
-          {phase === "cover" && <OpenOverlay key="open-overlay" />}
+          {(phase === "cover" || phase === "waiting" || phase === "reveal") && (
+            <OpenOverlay key="open-overlay" />
+          )}
         </AnimatePresence>
 
         {/* Page content fade transition */}
