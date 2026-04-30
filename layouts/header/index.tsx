@@ -64,8 +64,8 @@ const Header = () => {
           />
         </a>
       </nav>
-      <nav className=" hidden lg:flex px-6 md:px-20 mx-auto h-full items-center flex-1 md:justify-end md:pr-40 text-primary ">
-        <ul className="  flex h-full py-2 items-center ">
+      <nav className="hidden md:flex px-6 md:px-20 mx-auto h-full items-center flex-1 md:justify-end md:pr-40 text-primary">
+        <ul className="flex h-full py-2 items-center">
           {NAV_LINKS.map(nav => {
             return (
               <React.Fragment key={nav.key}>
@@ -80,7 +80,7 @@ const Header = () => {
         </ul>
       </nav>
       <nav
-        className=" hidden ml-auto px-8 h-full lg:flex items-center w-max md:justify-center text-slate "
+        className="hidden ml-auto px-8 h-full md:flex items-center w-max md:justify-center text-slate"
         onMouseEnter={() => cursorContext.cursorEnter("navlinkIcon")}
         onMouseLeave={() => cursorContext.cursorLeave("default")}
       >
@@ -90,7 +90,7 @@ const Header = () => {
         <a
           onClick={() => navigateTo("/contact")}
           className={clsx(
-            "hidden md:flex text-base font-mono py-2 px-5 italic cursor-pointer",
+            "hidden md:flex text-base font-mono py-2 px-3 lg:px-5 italic cursor-pointer",
             {
               "text-slate hover:text-light/80": router.pathname !== "/contact",
               "text-primary": router.pathname === "/contact",
@@ -103,7 +103,7 @@ const Header = () => {
         </a>
         <button
           onClick={toggleMobileMenu}
-          className=" text-center md:hidden text-base font-mono text-slate italic hover:text-light"
+          className="text-center md:hidden text-base font-mono text-slate italic hover:text-light"
         >
           _Menu
         </button>
