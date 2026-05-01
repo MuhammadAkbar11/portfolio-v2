@@ -13,7 +13,7 @@ import {
 } from "./mobileMenu.motion";
 import { NAV_LINKS } from "@utils/constants.utils";
 import GithubIcon from "@components/icon/github";
-import LinkedInIcon from "@components/icon/linkedIn";
+// import LinkedInIcon from "@components/icon/linkedIn";
 import Image from "next/image";
 import { useTransition } from "@@context/TransitionContext";
 
@@ -135,15 +135,15 @@ const MobileMenu = () => {
                   <GithubIcon />
                   GITHUB
                 </a>
-                <a
-                  href="https://www.linkedin.com/in/muhammadakbarletlet/"
+                {/* <a
+                  href="https://www.linkedin.com/"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="text-light hover:text-primary transition-colors flex items-center gap-2 font-mono text-sm"
                 >
                   <LinkedInIcon />
                   LINKEDIN
-                </a>
+                </a> */}
               </div>
             </motion.div>
           </motion.div>

@@ -1,5 +1,5 @@
 import GithubIcon from "@components/icon/github";
-import LinkedInIcon from "@components/icon/linkedIn";
+// import LinkedInIcon from "@components/icon/linkedIn";
 import React from "react";
 import HeaderLinkItem from "./headerLinkItem";
 import HeaderSocialItem from "./headerSocialItem";
@@ -13,10 +13,10 @@ function HeaderSocials({}: Props) {
         href="https://github.com/MuhammadAkbar11"
         icon={<GithubIcon />}
       />
-      <HeaderSocialItem
-        href="https://www.linkedin.com/in/muhammadakbarletlet/"
+      {/* <HeaderSocialItem
+        href="https://www.linkedin.com/"
         icon={<LinkedInIcon />}
-      />
+      /> */}
     </ul>
   );
 }

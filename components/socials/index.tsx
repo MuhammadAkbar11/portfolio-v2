@@ -3,7 +3,7 @@ import { motion } from "framer-motion";
 import clsx from "classnames";
 import { socialsVariants } from "./socials.motion";
 import SocialsIcon from "./socialsIcon";
-import LinkedInIcon from "@components/icon/linkedIn";
+// import LinkedInIcon from "@components/icon/linkedIn";
 import GithubIcon from "@components/icon/github";
 
 type Props = {
@@ -26,11 +26,11 @@ function Socials({ className, inView, delay }: Props) {
           Icon: GithubIcon,
           href: "https://github.com/MuhammadAkbar11",
         },
-        {
-          id: 2,
-          Icon: LinkedInIcon,
-          href: "https://www.linkedin.com/in/muhammadakbarletlet/",
-        },
+        // {
+        //   id: 2,
+        //   Icon: LinkedInIcon,
+        //   href: "https://www.linkedin.com/",
+        // },
       ].map(icon => {
         const { Icon } = icon;
         return (
