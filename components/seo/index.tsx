@@ -29,6 +29,34 @@ const SEO = ({
     ? `${BASE_URL}${image}`
     : `${BASE_URL}${DEFAULT_IMAGE}`;
 
+  const personSchema = {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    name: SITE_NAME,
+    url: BASE_URL,
+    jobTitle: "Web Developer",
+    description: DEFAULT_DESCRIPTION,
+    sameAs: ["https://github.com/MuhammadAkbar11"],
+    address: {
+      "@type": "PostalAddress",
+      addressLocality: "Indonesia",
+      addressRegion: "Indonesia",
+      addressCountry: "ID",
+    },
+  };
+
+  const websiteSchema = {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    name: SITE_NAME,
+    url: BASE_URL,
+    description: DEFAULT_DESCRIPTION,
+    author: {
+      "@type": "Person",
+      name: SITE_NAME,
+    },
+  };
+
   return (
     <Head>
       {/* Primary Meta Tags */}
@@ -51,6 +79,20 @@ const SEO = ({
 
       {/* Canonical */}
       <link rel="canonical" href={pageUrl} />
+
+      {/* JSON-LD Structured Data */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(personSchema),
+        }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(websiteSchema),
+        }}
+      />
     </Head>
   );
 };
