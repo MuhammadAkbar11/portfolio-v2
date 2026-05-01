@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { motion } from "framer-motion";
 import { WorkProjectItem } from "@utils/constants.utils";
 import { useCursorContext } from "@@context/CursorContext";
@@ -10,6 +10,7 @@ import {
   projectImageVariants,
 } from "./project.motion";
 import Image from "next/image";
+import CursorImagePreview from "@components/cursorPreview";
 
 type Props = {
   project: WorkProjectItem;
@@ -18,6 +19,7 @@ type Props = {
 
 function ProjectCard({ project, index }: Props) {
   const cursorContext = useCursorContext();
+  const [isImageHovered, setIsImageHovered] = useState(false);
 
   return (
     <motion.article
@@ -27,10 +29,22 @@ function ProjectCard({ project, index }: Props) {
       viewport={{ once: true, amount: 0.2 }}
       className="overflow-hidden border border-slate/25 mb-12 last:mb-0 bg-secondary/70 min-h-[70vh] lg:min-h-[85vh] flex flex-col justify-center hover:-translate-y-1 hover:shadow-[0_8px_30px_rgba(100,255,218,0.06)] transition-all duration-300 ease-out"
     >
+      <CursorImagePreview
+        src={project.image}
+        alt={`${project.title} preview`}
+        isActive={isImageHovered}
+      />
       <div className="grid grid-cols-1 lg:grid-cols-5 h-full">
         <motion.div
           variants={projectImageBox}
           className="relative col-span-1 lg:col-span-2 overflow-hidden border-b lg:border-b-0 lg:border-r border-slate/20 h-[300px] sm:h-[450px] lg:h-auto"
+          onMouseEnter={() => {
+            setIsImageHovered(true);
+            cursorContext.cursorEnter("default");
+          }}
+          onMouseLeave={() => {
+            setIsImageHovered(false);
+          }}
         >
           <motion.div
             variants={projectImageVariants}
@@ -49,11 +63,22 @@ function ProjectCard({ project, index }: Props) {
         <motion.div
           variants={projectContentVariants}
           className="col-span-1 lg:col-span-3 flex flex-col px-6 sm:px-12 py-10 sm:py-16"
-          onMouseEnter={() => cursorContext.cursorEnter("default")}
+          onMouseEnter={() => {
+            setIsImageHovered(false);
+            cursorContext.cursorEnter("default");
+          }}
         >
           <div className="flex flex-wrap items-center gap-3 mb-4">
             <span className="font-mono italic text-primary text-sm sm:text-base">{`_${project.year}`}</span>
-            <h3 className="font-heading text-light uppercase text-[32px] leading-[34px] sm:text-[48px] sm:leading-[50px]">
+            <h3
+              onMouseEnter={() => {
+                cursorContext.cursorEnter("subheading");
+              }}
+              onMouseLeave={() => {
+                cursorContext.cursorEnter("default");
+              }}
+              className="font-heading text-light uppercase text-[32px] leading-[34px] sm:text-[48px] sm:leading-[50px]"
+            >
               {project.title}
             </h3>
           </div>

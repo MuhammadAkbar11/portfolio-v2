@@ -9,6 +9,8 @@ import { useRouter } from "next/router";
 import { pageVariants } from "@utils/motion/pageTransition.motion";
 import dynamic from "next/dynamic";
 import { TransitionProvider, useTransition } from "@@context/TransitionContext";
+import ExitOverlay from "@components/pageTransition/ExitOverlay";
+import OpenOverlay from "@components/pageTransition/OpenOverlay";
 
 const CustomCursor = dynamic(() => import("@components/customCursor"), {
   ssr: false,
@@ -16,14 +18,14 @@ const CustomCursor = dynamic(() => import("@components/customCursor"), {
 const MobileMenu = dynamic(() => import("@components/mobileMenu"), {
   ssr: false,
 });
-const ExitOverlay = dynamic(
-  () => import("@components/pageTransition/ExitOverlay"),
-  { ssr: false },
-);
-const OpenOverlay = dynamic(
-  () => import("@components/pageTransition/OpenOverlay"),
-  { ssr: false },
-);
+// const ExitOverlay = dynamic(
+//   () => import("@components/pageTransition/ExitOverlay"),
+//   { ssr: false },
+// );
+// const OpenOverlay = dynamic(
+//   () => import("@components/pageTransition/OpenOverlay"),
+//   { ssr: false },
+// );
 
 function AppContent({ Component, pageProps }: AppProps) {
   const [showChild, setShowChild] = useState(false);
