@@ -1,10 +1,12 @@
 import Template from "@layouts/template";
 import HeadingAnimated from "@components/headingAnimated";
 import PageSubHeading from "@components/pageSubHeading";
-import Footer from "@layouts/footer";
 import { useCursorContext } from "@@context/CursorContext";
 import Projects from "@components/projects";
 import SEO from "@components/seo";
+import dynamic from "next/dynamic";
+
+const Footer = dynamic(() => import("@layouts/footer"));
 
 export default function Work() {
   const cursorContext = useCursorContext();

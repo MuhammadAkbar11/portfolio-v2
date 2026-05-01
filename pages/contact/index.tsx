@@ -1,13 +1,17 @@
 import React from "react";
 import { useCursorContext } from "@@context/CursorContext";
-import Decoration from "@components/decoration";
 import HeadingAnimated from "@components/headingAnimated";
 import PageSubHeading from "@components/pageSubHeading";
-import Footer from "@layouts/footer";
 import Template from "@layouts/template";
 import useMediaQuery from "@hooks/useMediaQuery";
 import ContactContent from "@components/contactContent";
 import SEO from "@components/seo";
+import dynamic from "next/dynamic";
+
+const Decoration = dynamic(() => import("@components/decoration"), {
+  ssr: false,
+});
+const Footer = dynamic(() => import("@layouts/footer"));
 
 type Props = {};
 

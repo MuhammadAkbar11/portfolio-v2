@@ -1,13 +1,17 @@
 import Template from "@layouts/template";
-import Decoration from "@components/decoration";
 import HeadingAnimated from "@components/headingAnimated";
 import PageSubHeading from "@components/pageSubHeading";
 import AboutContent from "@components/aboutContent";
 import AboutSkill from "@components/aboutSkill";
-import Footer from "@layouts/footer";
 import { useCursorContext } from "@@context/CursorContext";
 import useMediaQuery from "@hooks/useMediaQuery";
 import SEO from "@components/seo";
+import dynamic from "next/dynamic";
+
+const Decoration = dynamic(() => import("@components/decoration"), {
+  ssr: false,
+});
+const Footer = dynamic(() => import("@layouts/footer"));
 
 export default function About() {
   const cursorContext = useCursorContext();

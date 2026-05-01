@@ -1,8 +1,12 @@
 import HeroAction from "@components/hero/heroAction";
 import HeroText from "@components/hero/heroText";
 import Template from "@layouts/template";
-import Decoration from "@components/decoration";
 import SEO from "@components/seo";
+import dynamic from "next/dynamic";
+
+const Decoration = dynamic(() => import("@components/decoration"), {
+  ssr: false,
+});
 
 export default function Home() {
   return (

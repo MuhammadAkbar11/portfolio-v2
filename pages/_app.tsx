@@ -3,16 +3,27 @@ import type { AppProps } from "next/app";
 import { LayoutProvider } from "@@context/LayoutContext";
 import { useEffect, useState } from "react";
 import useMediaQuery from "@hooks/useMediaQuery";
-import CustomCursor from "@components/customCursor";
-import MobileMenu from "@components/mobileMenu";
 import Head from "next/head";
 import { AnimatePresence, motion } from "framer-motion";
 import { useRouter } from "next/router";
 import { pageVariants } from "@utils/motion/pageTransition.motion";
-import ExitOverlay from "@components/pageTransition/ExitOverlay";
-import OpenOverlay from "@components/pageTransition/OpenOverlay";
-
+import dynamic from "next/dynamic";
 import { TransitionProvider, useTransition } from "@@context/TransitionContext";
+
+const CustomCursor = dynamic(() => import("@components/customCursor"), {
+  ssr: false,
+});
+const MobileMenu = dynamic(() => import("@components/mobileMenu"), {
+  ssr: false,
+});
+const ExitOverlay = dynamic(
+  () => import("@components/pageTransition/ExitOverlay"),
+  { ssr: false },
+);
+const OpenOverlay = dynamic(
+  () => import("@components/pageTransition/OpenOverlay"),
+  { ssr: false },
+);
 
 function AppContent({ Component, pageProps }: AppProps) {
   const [showChild, setShowChild] = useState(false);

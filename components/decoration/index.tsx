@@ -11,7 +11,12 @@ type Props = {
   className?: string;
 };
 
-function Decoration({ delay = 0.1, size, className, fixed = false }: Props) {
+function Decoration({
+  delay = 0.1,
+  size = "xl",
+  className,
+  fixed = false,
+}: Props) {
   if (size === "sm") {
     return (
       <DecorationSmall delay={delay} className={className} fixed={fixed} />
@@ -24,9 +29,5 @@ function Decoration({ delay = 0.1, size, className, fixed = false }: Props) {
 
   return <DecorationLarge delay={delay} className={className} fixed={fixed} />;
 }
-
-Decoration.defaultProps = {
-  size: "xl",
-};
 
 export default Decoration;
