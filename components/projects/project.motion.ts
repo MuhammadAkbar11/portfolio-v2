@@ -39,6 +39,25 @@ export const projectImageBox: Variants = {
   },
 };
 
+export const projectCardHoverVariants: Variants = {
+  rest: {
+    y: 0,
+    boxShadow: "0 0 0 rgba(100, 255, 218, 0)",
+    transition: {
+      duration: 0.3,
+      ease: MOTION_EASE.default,
+    },
+  },
+  hover: {
+    y: -4,
+    boxShadow: "0 8px 30px rgba(100, 255, 218, 0.06)",
+    transition: {
+      duration: 0.3,
+      ease: MOTION_EASE.default,
+    },
+  },
+};
+
 export const projectImageVariants: Variants = {
   closed: {
     opacity: 0,

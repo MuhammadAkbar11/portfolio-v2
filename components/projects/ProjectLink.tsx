@@ -13,12 +13,19 @@ type Props = {
 
 const linkArrowVariants = {
   initial: { x: 0 },
-  hover: { x: 5 },
+  hover: {
+    x: 5.5,
+    transition: { duration: 0.3, ease: [0.6, 0.01, -0.05, 0.95] },
+  },
 };
 
 const linkBorderVariants = {
   initial: { width: 0, opacity: 0 },
-  hover: { width: "100%", opacity: 1 },
+  hover: {
+    width: "100%",
+    opacity: 1,
+    transition: { duration: 0.3, ease: [0.6, 0.01, -0.05, 0.95] },
+  },
 };
 
 function ProjectLink({ href, label, ...props }: Props) {
@@ -31,7 +38,7 @@ function ProjectLink({ href, label, ...props }: Props) {
       rel="noreferrer"
       initial="initial"
       whileHover="hover"
-      className="relative group overflow-hidden text-md sm:text-md flex items-center gap-2 text-primary italic py-1 w-max"
+      className="relative group overflow-hidden text-md sm:text-md flex items-center gap-2 text-primary italic py-1 w-max transition-all duration-300 ease-out"
       onMouseEnter={() => cursorContext.cursorEnter("link")}
       onMouseLeave={() => cursorContext.cursorLeave("default")}
       {...props}

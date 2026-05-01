@@ -1,4 +1,5 @@
 import React from "react";
+import { motion } from "framer-motion";
 import { useCursorContext } from "@@context/CursorContext";
 import { useTransition } from "@@context/TransitionContext";
 import clsx from "classnames";
@@ -13,7 +14,7 @@ function HeaderLinkItem({ href, text, active }: Props) {
   const cursorContext = useCursorContext();
   const { navigateTo } = useTransition();
 
-  const classNm = clsx("font-mono  italic  cursor-pointer", {
+  const classNm = clsx("font-mono italic cursor-pointer relative group", {
     "text-slate hover:text-light": !active,
     "text-primary": active,
   });
@@ -25,13 +26,16 @@ function HeaderLinkItem({ href, text, active }: Props) {
       onMouseLeave={() => cursorContext.cursorLeave("default")}
     >
       <a
-        onClick={(e) => {
+        onClick={e => {
           e.preventDefault();
           navigateTo(href);
         }}
-        className="py-2 px-6"
+        className="py-2 px-6 inline-block transition-colors duration-300 ease-out"
       >
         {`_${text}`}
+        {/* {!active && (
+          <span className="absolute bottom-0 left-6 right-6 h-[1px] bg-primary scale-x-0 group-hover:scale-x-100 transition-transform duration-300 ease-out origin-left" />
+        )} */}
       </a>
     </li>
   );

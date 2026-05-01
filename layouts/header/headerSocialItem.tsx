@@ -1,4 +1,5 @@
 import React from "react";
+import { motion } from "framer-motion";
 
 type Props = {
   href: string;
@@ -7,13 +8,16 @@ type Props = {
 
 function HeaderSocialItem({ href, icon }: Props) {
   return (
-    <a
+    <motion.a
       href={href}
       target="_blank"
-      className=" h-8 w-8 p-2 flex justify-center items-center text-sm  box-border rounded-full hover:text-lightness-slate   "
+      whileHover={{ scale: 1.15 }}
+      whileTap={{ scale: 0.9 }}
+      transition={{ duration: 0.2, ease: [0.6, 0.01, -0.05, 0.95] }}
+      className="h-8 w-8 p-2 flex justify-center items-center text-sm box-border rounded-full hover:text-lightness-slate transition-colors duration-300"
     >
       {icon}
-    </a>
+    </motion.a>
   );
 }
 

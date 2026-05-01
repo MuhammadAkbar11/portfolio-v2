@@ -30,9 +30,10 @@ function HeroActionLeft({ href, name }: Props) {
       href={href}
       variants={heroActionBoxVariants}
       whileHover="hover"
+      whileTap={{ scale: 0.97 }}
       initial="closed"
       animate="open"
-      className="overflow-y-hidden flex-1 flex items-center md:justify-start relative justify-start px-6 sm:pl-8 py-8 sm:py-16 md:py-8  hover:bg-light-secondary/10 transition-all duration-100 ease-in-out "
+      className="overflow-y-hidden flex-1 flex items-center md:justify-start relative justify-start px-6 sm:pl-8 py-8 sm:py-16 md:py-8 hover:bg-light-secondary/10 transition-all duration-300 ease-out"
       onMouseEnter={() => cursorContext.cursorEnter("heroAction", name)}
       onMouseLeave={() => cursorContext.cursorLeave("default")}
       onClick={onClickHandler}

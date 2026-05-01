@@ -25,7 +25,7 @@ function ProjectCard({ project, index }: Props) {
       initial="closed"
       whileInView="open"
       viewport={{ once: true, amount: 0.2 }}
-      className="overflow-hidden border border-slate/25 mb-12 last:mb-0 bg-secondary/70 min-h-[70vh] lg:min-h-[85vh] flex flex-col justify-center"
+      className="overflow-hidden border border-slate/25 mb-12 last:mb-0 bg-secondary/70 min-h-[70vh] lg:min-h-[85vh] flex flex-col justify-center hover:-translate-y-1 hover:shadow-[0_8px_30px_rgba(100,255,218,0.06)] transition-all duration-300 ease-out"
     >
       <div className="grid grid-cols-1 lg:grid-cols-5 h-full">
         <motion.div
@@ -67,7 +67,7 @@ function ProjectCard({ project, index }: Props) {
             {project.stacks.map(stack => (
               <span
                 key={`${project.id}-${stack}`}
-                className="px-4 py-1.5 text-xs sm:text-sm uppercase tracking-widest border border-primary/20 text-primary/80 font-mono italic bg-primary/5"
+                className="px-4 py-1.5 text-xs sm:text-sm uppercase tracking-widest border border-primary/20 text-primary/80 font-mono italic bg-primary/5 hover:bg-primary/10 hover:border-primary/40 hover:text-primary transition-all duration-300 ease-out"
               >
                 {stack}
               </span>

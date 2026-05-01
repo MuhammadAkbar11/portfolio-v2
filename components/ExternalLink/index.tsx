@@ -25,7 +25,7 @@ function ExternalLink({ text, href }: Props) {
       initial="closed"
       animate="open"
       target={"_blank"}
-      className=" w-full lg:w-[80%]  overflow-hidden flex flex-col justify-start items-center group text-light-slate/60 uppercase font-black hover:text-light whitespace-nowrap font-heading-2 text-3xl md:text-5xl italic  "
+      className="w-full lg:w-[80%] overflow-hidden flex flex-col justify-start items-center group text-light-slate/60 uppercase font-black hover:text-light whitespace-nowrap font-heading-2 text-3xl md:text-5xl italic hover:tracking-wider transition-all duration-300 ease-out"
       // onClick={onClickHandler}
       onMouseEnter={() => cursorContext.cursorEnter("link")}
       onMouseLeave={() => cursorContext.cursorLeave("default")}
