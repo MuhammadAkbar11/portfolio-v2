@@ -4,15 +4,20 @@ import { exitColumnVariants } from "./exitOverlay.motion";
 import { useTransition } from "@@context/TransitionContext";
 import { COLORS } from "@utils/constants.utils";
 import ExitColumn from "./ExitColumn";
+import useMediaQuery from "@hooks/useMediaQuery";
 
-const COLUMN_COUNT = 6;
+const COLUMN_COUNT_DESKTOP = 6;
+const COLUMN_COUNT_MOBILE = 3;
+const MOBILE_BREAKPOINT = "(max-width: 767px)";
 
 const ExitOverlay = () => {
   const { direction, onExitOverlayComplete, phase } = useTransition();
+  const isMobile = useMediaQuery(MOBILE_BREAKPOINT);
+  const columnCount = isMobile ? COLUMN_COUNT_MOBILE : COLUMN_COUNT_DESKTOP;
 
   const handleAnimationComplete = (variant: any, index: number) => {
     const isLast =
-      direction === "forward" ? index === COLUMN_COUNT - 1 : index === 0;
+      direction === "forward" ? index === columnCount - 1 : index === 0;
     if (isLast && variant === "covered") {
       onExitOverlayComplete();
     }
@@ -25,11 +30,11 @@ const ExitOverlay = () => {
     >
       {/* Static Borders Layer */}
       <div className="absolute bg-transparent inset-0 flex pointer-events-none w-full h-full z-10">
-        {Array.from({ length: COLUMN_COUNT }).map((_, i) => (
+        {Array.from({ length: columnCount }).map((_, i) => (
           <div
             key={`border-${i}`}
             style={{
-              width: `${100 / COLUMN_COUNT}%`,
+              width: `${100 / columnCount}%`,
               height: "100%",
               borderRight: "1px solid rgba(255, 255, 255, 0.05)",
             }}
@@ -37,10 +42,11 @@ const ExitOverlay = () => {
         ))}
       </div>
 
-      {Array.from({ length: COLUMN_COUNT }).map((_, i) => (
+      {Array.from({ length: columnCount }).map((_, i) => (
         <ExitColumn
           key={i}
           index={i}
+          columnCount={columnCount}
           direction={direction}
           onComplete={handleAnimationComplete}
         />

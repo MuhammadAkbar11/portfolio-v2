@@ -7,6 +7,7 @@ import useMediaQuery from "@hooks/useMediaQuery";
 
 interface OpenColumnProps {
   index: number;
+  columnCount: number;
   direction: "forward" | "backward";
   phase: TransitionPhase;
   onComplete: (variant: any, index: number) => void;
@@ -14,6 +15,7 @@ interface OpenColumnProps {
 
 const OpenColumn = ({
   index,
+  columnCount,
   direction,
   phase,
   onComplete,
@@ -25,13 +27,13 @@ const OpenColumn = ({
     content = `WRITE and BUILD`;
   }
 
-  if (index === 4) {
+  if (index === 4 && columnCount === 6) {
     content = `THINK and CODE`;
   }
 
   return (
     <motion.div
-      custom={{ index, direction }}
+      custom={{ index, direction, columnCount }}
       variants={openColumnVariants}
       initial="covered"
       animate={phase === "reveal" || phase === "idle" ? "open" : "covered"}
@@ -41,8 +43,8 @@ const OpenColumn = ({
       style={{
         position: "absolute",
         top: 0,
-        left: `${(index / 6) * 100}%`,
-        width: `${100 / 6}%`,
+        left: `${(index / columnCount) * 100}%`,
+        width: `${100 / columnCount}%`,
         height: "100%",
         willChange: "transform",
       }}

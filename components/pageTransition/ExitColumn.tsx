@@ -5,11 +5,12 @@ import useMediaQuery from "@hooks/useMediaQuery";
 
 interface ExitColumnProps {
   index: number;
+  columnCount: number;
   direction: "forward" | "backward";
   onComplete: (variant: any, index: number) => void;
 }
 
-const ExitColumn = ({ index, direction, onComplete }: ExitColumnProps) => {
+const ExitColumn = ({ index, columnCount, direction, onComplete }: ExitColumnProps) => {
   const lgscreen = useMediaQuery("(min-width: 1024px)");
   let content: React.ReactNode = null;
 
@@ -17,13 +18,13 @@ const ExitColumn = ({ index, direction, onComplete }: ExitColumnProps) => {
     content = `WRITE and BUILD`;
   }
 
-  if (index === 4) {
+  if (index === 4 && columnCount === 6) {
     content = `THINK and CODE`;
   }
 
   return (
     <motion.div
-      custom={{ index, direction }}
+      custom={{ index, direction, columnCount }}
       variants={exitColumnVariants}
       initial="hidden"
       animate="covered"
@@ -32,8 +33,8 @@ const ExitColumn = ({ index, direction, onComplete }: ExitColumnProps) => {
       style={{
         position: "absolute",
         top: 0,
-        left: `${(index / 6) * 100}%`,
-        width: `${100 / 6}%`,
+        left: `${(index / columnCount) * 100}%`,
+        width: `${100 / columnCount}%`,
         height: "100%",
         willChange: "transform",
       }}

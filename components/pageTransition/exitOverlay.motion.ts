@@ -4,6 +4,7 @@ import type { Variants } from "framer-motion";
 export interface ColumnCustom {
   index: number;
   direction: "forward" | "backward";
+  columnCount: number;
 }
 
 export const exitColumnVariants: Variants = {
@@ -11,8 +12,9 @@ export const exitColumnVariants: Variants = {
     scaleX: 0,
     transformOrigin: direction === "backward" ? "right" : "left",
   }),
-  covered: ({ index, direction }: ColumnCustom) => {
-    const delay = direction === "backward" ? (5 - index) * 0.05 : index * 0.05;
+  covered: ({ index, direction, columnCount }: ColumnCustom) => {
+    const maxIndex = columnCount - 1;
+    const delay = direction === "backward" ? (maxIndex - index) * 0.05 : index * 0.05;
     return {
       scaleX: 1,
       transition: {

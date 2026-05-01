@@ -6,8 +6,9 @@ export const openColumnVariants: Variants = {
     scaleX: 1,
     transformOrigin: direction === "backward" ? "left" : "right",
   }),
-  open: ({ index, direction }: ColumnCustom) => {
-    const delay = direction === "backward" ? (5 - index) * 0.05 : index * 0.09;
+  open: ({ index, direction, columnCount }: ColumnCustom) => {
+    const maxIndex = columnCount - 1;
+    const delay = direction === "backward" ? (maxIndex - index) * 0.05 : index * 0.09;
     return {
       scaleX: 0,
       transition: {
