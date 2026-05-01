@@ -11,7 +11,7 @@ const Decoration = dynamic(() => import("@components/decoration"), {
 export default function Home() {
   return (
     <>
-      <SEO description="Personal portfolio and introduction of Muhammad Akbar L — Frontend Developer specializing in React, Next.js, and modern web technologies." />
+      <SEO description="Personal portfolio of Muhammad Akbar L — a fullstack JavaScript developer building modern web applications with clean design, smooth interactions, and scalable architecture." />
       <Template>
         <section className=" relative overflow-hidden flex flex-col h-full justify-start flex-1 w-full ">
           <Decoration

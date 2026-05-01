@@ -20,7 +20,7 @@ export default function About() {
     <>
       <SEO
         title="About"
-        description="Learn more about Muhammad Akbar L — a Frontend Developer passionate about building modern, performant, and visually stunning web experiences."
+        description="Learn more about Muhammad Akbar L — a fullstack JavaScript developer focused on building modern, scalable web applications with clean design and user-centered experiences."
       />
       <Template>
         <section className=" z-[5] bg-secondary/95 h-max relative  flex flex-col w-full  justify-start flex-1 flex-wrap pt-28 pb-10 overflow-hidden">

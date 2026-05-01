@@ -15,7 +15,7 @@ export default function Work() {
     <>
       <SEO
         title="Work"
-        description="Explore projects and work built by Muhammad Akbar L — from e-commerce platforms to real-time applications using React, Next.js, Node.js, and more."
+        description="Explore projects by Muhammad Akbar L — a fullstack JavaScript developer creating modern web applications with a focus on performance, scalability, and smooth user interactions."
       />
       <Template contentClass="overflow-hidden">
         <section className=" bg-secondary/95 h-max relative  flex flex-col w-full  justify-start flex-1 flex-wrap pt-28 pb-10 overflow-hidden">
