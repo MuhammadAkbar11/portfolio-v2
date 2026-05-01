@@ -1,3 +1,4 @@
+/* eslint-disable react/no-unescaped-entities */
 import { useCursorContext } from "@@context/CursorContext";
 import { useTransition } from "@@context/TransitionContext";
 import React from "react";
